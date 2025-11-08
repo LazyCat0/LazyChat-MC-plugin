@@ -17,13 +17,13 @@ Only fully configurable chat-system
     
     # log messages to console (by default on true)
     enable-console-logging: true
-    
+
 # How to build it?
 
- ### In Inteljl IDEA
- `click at maven icon, after on "lifecycle" and on "package"`
- ### In CLI
- `just go to project folder and open it with your command-line, after type "mvn package"`
+### In Inteljl IDEA
+`click at maven icon, after on "lifecycle" and on "package"`
+### In CLI
+`just go to project folder and open it with your command-line, after type "mvn package"`
 
 
 ###### BY LAZYCAT
