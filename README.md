@@ -1,7 +1,7 @@
 # LazyChat
 This is just another lazy-plugin which can made your chat expirience better
 ## What this plugin adds?
-Only fully configurable chat-system
+Only fully configurable chat-system with formating through MiniMessage
 
     # Local chat radius
     local-chat-radius: 100
