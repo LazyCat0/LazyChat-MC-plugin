@@ -10,17 +10,18 @@ Only fully configurable chat-system with formating through MiniMessage
     # Prefix for global chat (By default and most popular - "!")
     global-chat-prefix: "!"
 
-    # Example for global message. {player} - player-nickname, {message} - message
-    global-chat-format: "<dark_gray>[<red>G</red>]</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
-
-    # Example for local message. {player} - player-nickname, {message} - message
-    local-chat-format: "<dark_gray>[<green>L</green>]</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
-
     # log messages to console (by default on true)
     enable-console-logging: true
 
+    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms
+    # Example for global message.
+    global-chat-format: "<dark_gray>[<green>G</green>]</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    # Example for local message.
+    local-chat-format: "<dark_gray>[<blue>L</blue>]</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+
+
 # Do it support LuckyPerms prefixes?
-Nope. You need to use /team prefixes, but it will be supported in future
+Yes, this is support LuckyPerms from v0.3. For format prefix you need use MM formating, like `<gold><bold>prefix</bold></gold>`. Legacy formating doesn't support anyway.
 
 # What is "MiniMessage"?
 This is a formating api which provided from Adventure api (Or just Paper feature)

@@ -1,5 +1,5 @@
 name: LazyChat
-version: '0.2'
+version: '0.3'
 main: lazy.dev.lazyChat.LazyChat
 api-version: '1.21'
 authors: [ LazyCato0o ]
