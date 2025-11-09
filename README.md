@@ -1,5 +1,5 @@
 # LazyChat
-This is just another lazy-plugin which can made your chat expirience better
+This is just another lazy-plugin which can made your chat experience better
 ## What this plugin adds?
 Only fully configurable chat-system with formating through MiniMessage
 
@@ -17,6 +17,12 @@ Only fully configurable chat-system with formating through MiniMessage
     
     # log messages to console (by default on true)
     enable-console-logging: true
+
+# Do it support LuckyPerms prefixes?
+Nope. You need to use /team prefixes, but it will be supported in future
+
+# What is "MiniMessage"?
+This is a formating api which provided from Adventure api (Or just Paper feature)
 
 # How to build it?
 
