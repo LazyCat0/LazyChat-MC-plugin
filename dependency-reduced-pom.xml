@@ -4,7 +4,7 @@
   <groupId>lazy.dev</groupId>
   <artifactId>lazychat</artifactId>
   <name>lazychat</name>
-  <version>0.3</version>
+  <version>0.4</version>
   <build>
     <defaultGoal>clean package</defaultGoal>
     <resources>
@@ -14,14 +14,6 @@
       </resource>
     </resources>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
-      </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.5.3</version>
@@ -33,6 +25,68 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <version>${kotlin.version}</version>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <sourceDirs>
+                <source>src/main/java</source>
+                <source>target/generated-sources/annotations</source>
+              </sourceDirs>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test-compile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <jvmTarget>1.8</jvmTarget>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>default-testCompile</id>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>testCompile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -50,13 +104,26 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>dev.jorel</groupId>
+      <artifactId>commandapi-paper-core</artifactId>
+      <version>11.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
       <version>1.21.8-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-test</artifactId>
+      <version>2.2.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <properties>
+    <kotlin.version>2.2.0</kotlin.version>
     <java.version>21</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
