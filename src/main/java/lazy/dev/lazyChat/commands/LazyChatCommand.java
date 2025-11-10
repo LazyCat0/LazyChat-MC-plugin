@@ -1,5 +1,6 @@
-package lazy.dev.lazyChat;
+package lazy.dev.lazyChat.commands;
 
+import lazy.dev.lazyChat.LazyChat;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;

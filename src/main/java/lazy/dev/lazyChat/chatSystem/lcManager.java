@@ -1,6 +1,7 @@
-package lazy.dev.lazyChat;
+package lazy.dev.lazyChat.chatSystem;
 
 import io.papermc.paper.event.player.AsyncChatEvent;
+import lazy.dev.lazyChat.LazyChat;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.entity.Player;

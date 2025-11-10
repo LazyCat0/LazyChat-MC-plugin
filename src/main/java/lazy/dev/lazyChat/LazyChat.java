@@ -1,5 +1,8 @@
 package lazy.dev.lazyChat;
 
+import lazy.dev.lazyChat.chatSystem.ChatUtility;
+import lazy.dev.lazyChat.chatSystem.lcManager;
+import lazy.dev.lazyChat.commands.LazyChatCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LazyChat extends JavaPlugin {

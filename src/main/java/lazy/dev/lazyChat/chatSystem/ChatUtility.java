@@ -1,5 +1,7 @@
-package lazy.dev.lazyChat;
+package lazy.dev.lazyChat.chatSystem;
 
+import lazy.dev.lazyChat.LazyChat;
+import lazy.dev.lazyChat.LazyChatConfig;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.entity.Player;
