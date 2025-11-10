@@ -15,14 +15,13 @@ Only fully configurable chat-system with formating through MiniMessage
 
     # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms
     # Example for global message.
-    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    global-chat-format: "<dark_gray>[<green>G</green>]</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
     # Example for local message.
-    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
-
+    local-chat-format: "<dark_gray>[<blue>L</blue>]</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
 
 
 # Do it support LuckyPerms prefixes?
-I think... I do it soon.
+Yes, this is support LuckyPerms from v0.3. For format prefix you need use MM formating, like `<gold><bold>prefix</bold></gold>`. Legacy formating doesn't support anyway.
 
 # What is "MiniMessage"?
 This is a formating api which provided from Adventure api (Or just Paper feature)
@@ -30,9 +29,9 @@ This is a formating api which provided from Adventure api (Or just Paper feature
 # How to build it?
 
 ### In Inteljl IDEA
-`click at maven icon,` ![img_1.png](img_1.png)` after on "lifecycle"`![img_2.png](img_2.png)` and on "package"`
+`click at maven icon, after on "lifecycle" and on "package"`
 ### In CLI
 `just go to project folder and open it with your command-line, after type "mvn package"`
 
 
-## In some moments I use AI for make this chat-plugin, because I'm Junior and newbie in plugin-develop.
+###### BY LAZYCAT
