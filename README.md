@@ -1,4 +1,4 @@
-# <img src="img_1" alt="img_1" widght="20"> LazyChat
+# <img src="master/img_1" alt="img_1" widght="20"> LazyChat
 This is just another lazy-plugin which can made your chat experience better
 ![img.png](img.png)
 
