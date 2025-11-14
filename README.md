@@ -1,4 +1,4 @@
-# LazyChat
+# <img src="img_1" alt="img_1" widght="20"> LazyChat
 This is just another lazy-plugin which can made your chat experience better
 ![img.png](img.png)
 
@@ -19,11 +19,11 @@ Only fully configurable chat-system with formating through MiniMessage
     # log messages to console (by default on true)
     enable-console-logging: true
 
-    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms
+    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms (AT THIS MOMENT NOT SUPPORTED)
     # Example for global message.
-    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
     # Example for local message.
-    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix} <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
 
 
 
