@@ -17,10 +17,10 @@ public class ChatUtility {
         this.config = new LazyChatConfig(plugin);
         this.lp = lp;
     }
-
     public void reloadConfig() {
         this.config.reload();
     }
+
     public String prefix(Player player) {
         if (lp == null) {
             return "";
@@ -31,18 +31,10 @@ public class ChatUtility {
         return prefix != null ? prefix : "";
     }
 
-    private String processMiniMessage(String text) {
-        if (text == null || text.isEmpty()) {
-            return "";
-        }
-        return MiniMessage.miniMessage().serialize(MiniMessage.miniMessage().deserialize(text));
-    }
-
     public Component formatMessage(Player player, String message, boolean isGlobal) {
         String formatTemplate = isGlobal ?
                 config.getGlobalChatFormat() :
                 config.getLocalChatFormat();
-
         String formatted = formatTemplate
                 .replace("{player}", player.getName())
                 .replace("{message}", message)
@@ -50,7 +42,6 @@ public class ChatUtility {
 
         return MiniMessage.miniMessage().deserialize(formatted);
     }
-
 
     public boolean isGlobalChat(String message) {
         return message.startsWith(config.getGlobalChatPrefix());

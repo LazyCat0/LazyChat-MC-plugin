@@ -1,9 +1,7 @@
 # Local chat radius
 local-chat-radius: 100
-
 # Prefix for global chat (By default and most popular - "!")
 global-chat-prefix: "!"
-
 # log messages to console (by default on true)
 enable-console-logging: true
 

@@ -1,17 +1,18 @@
 name: LazyChat
-version: '0.8BETA'
+version: 1.0
 main: lazy.dev.lazyChat.LazyChat
+description: An example plugin
+author: LazyBoat TEAM
+website: https://github.com/lazyboatTEAM/
 api-version: '1.21'
-authors: [ LazyCato0o ]
-description: Plugin which improves chat system and adds support MiniMessage formating
-website: https://github.com/LazyCat0/LazyChat-MC-plugin
-commands:
-  lazy-chat:
-    description: LazyChat command
-    aliases: [l-chat, lc]
-    permission: l-chat.*
+prefix: LazyBoat-LazyChat
 permissions:
-  l-chat.*:
-    description: Allow use "lc" commands
+  l-chat.reload:
+    description: Gives access to reload plugin
     default: op
-softdepend: [LuckPerms]
+  l-chat.info:
+    description: Gives access to see some useful info about plugin
+    default: not op
+  l-chat.broadcast:
+    description: Gives access to use /broadcast
+    default: not op

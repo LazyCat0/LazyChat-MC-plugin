@@ -1,6 +1,5 @@
 package lazy.dev.lazyChat;
 
-
 import lazy.dev.lazyChat.chatSystem.ChatUtility;
 import lazy.dev.lazyChat.chatSystem.lcManager;
 import lazy.dev.lazyChat.commands.Commands;
@@ -24,11 +23,9 @@ public final class LazyChat extends JavaPlugin {
         if (provider != null) {
             this.lp = provider.getProvider();
         }
-
-        this.chatUtility = new ChatUtility(this, lp);
-
-        getServer().getPluginManager().registerEvents(new lcManager(this), this);
         new Commands(this).register();
+        this.chatUtility = new ChatUtility(this, lp);
+        getServer().getPluginManager().registerEvents(new lcManager(this), this);
     }
     public ChatUtility getChatUtility() {
         return chatUtility;

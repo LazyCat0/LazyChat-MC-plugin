@@ -9,11 +9,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 public class lcManager implements Listener {
-    private final LazyChat plugin;
     private final ChatUtility chatUtility;
 
     public lcManager(LazyChat plugin) {
-        this.plugin = plugin;
         this.chatUtility = plugin.getChatUtility();
     }
 

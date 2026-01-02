@@ -7,7 +7,11 @@ This is just another lazy-plugin which can made your chat experience better
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
 **Also, available on SpigotMC - [LazyChat on SpigotMC](https://www.spigotmc.org/resources/lazychat.130059/)**
-**LATEST AT THIS MOMENT PUBLIC VERSION - v0.9**
+**LATEST AT THIS MOMENT PUBLIC VERSION - v1.0**
+## dependencies:
+
+**CommandAPI v11.0.0 - [Github](https://github.com/CommandAPI/CommandAPI/releases/tag/11.0.0)**
+
 
 <img src="images_GitHub/WhatsPluginAdds_LC.png" alt="Whats Plugin Adds">
 
@@ -31,7 +35,7 @@ Only fully configurable chat-system with formating through MiniMessage
 
 
 ## Do is it support LuckyPerms prefixes?
-**Yes! Special thanks to [kirikws](https://github.com/orgs/LazyBoatTEAM/people/kirikws)**
+**Yes!**
 
 **For change prefix color you need use this command - `/lp user <player> meta setprefix "<red>[example_prefix]</red> "`**
 
