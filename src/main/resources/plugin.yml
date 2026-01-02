@@ -1,5 +1,5 @@
 name: LazyChat
-version: 1.0
+version: 1.1
 main: lazy.dev.lazyChat.LazyChat
 description: An example plugin
 author: LazyBoat TEAM

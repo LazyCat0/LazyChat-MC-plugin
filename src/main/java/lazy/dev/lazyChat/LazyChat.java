@@ -2,7 +2,8 @@ package lazy.dev.lazyChat;
 
 import lazy.dev.lazyChat.chatSystem.ChatUtility;
 import lazy.dev.lazyChat.chatSystem.lcManager;
-import lazy.dev.lazyChat.commands.Commands;
+import lazy.dev.lazyChat.commands.BCCommand;
+import lazy.dev.lazyChat.commands.LCCommand;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,7 +24,8 @@ public final class LazyChat extends JavaPlugin {
         if (provider != null) {
             this.lp = provider.getProvider();
         }
-        new Commands(this).register();
+        new LCCommand(this).register();
+        new BCCommand(this).register();
         this.chatUtility = new ChatUtility(this, lp);
         getServer().getPluginManager().registerEvents(new lcManager(this), this);
     }

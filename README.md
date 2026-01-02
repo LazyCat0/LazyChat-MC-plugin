@@ -7,7 +7,7 @@ This is just another lazy-plugin which can made your chat experience better
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
 **Also, available on SpigotMC - [LazyChat on SpigotMC](https://www.spigotmc.org/resources/lazychat.130059/)**
-**LATEST AT THIS MOMENT PUBLIC VERSION - v1.0**
+**LATEST AT THIS MOMENT PUBLIC VERSION - v1.1**
 ## dependencies:
 
 **CommandAPI v11.0.0 - [Github](https://github.com/CommandAPI/CommandAPI/releases/tag/11.0.0)**
