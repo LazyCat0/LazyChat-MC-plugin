@@ -19,6 +19,7 @@ public class LanguageManager {
     public LanguageManager(JavaPlugin plugin) {
         String defaultLang = plugin.getConfig().getString("lang", "en_US");
         loadLanguages(plugin);
+        this.lang = languages.get(defaultLang);
     }
     public void loadLanguages(JavaPlugin plugin) {
         File dir = new File(plugin.getDataFolder(), "lang");
