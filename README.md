@@ -7,10 +7,8 @@ This is just another lazy-plugin which can made your chat experience better
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
 **Also, available on SpigotMC - [LazyChat on SpigotMC](https://www.spigotmc.org/resources/lazychat.130059/)**
-**LATEST AT THIS MOMENT PUBLIC VERSION - v1.1**
-## dependencies:
-
-**CommandAPI v11.0.0 - [Github](https://github.com/CommandAPI/CommandAPI/releases/tag/11.0.0)**
+**LATEST AT THIS MOMENT PUBLIC VERSION - v1.3**
+## Recommended use this plugin with LuckPerms
 
 
 <img src="images_GitHub/WhatsPluginAdds_LC.png" alt="Whats Plugin Adds">
@@ -26,11 +24,11 @@ Only fully configurable chat-system with formating through MiniMessage
     # log messages to console (by default on true)
     enable-console-logging: true
 
-    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms (AT THIS MOMENT NOT SUPPORTED)
+    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckyPerms
     # Example for global message.
-    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
     # Example for local message.
-    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> <gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
+    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<gold>{player}</gold> <gray>>>></gray> <white>{message}</white>"
 
 
 
@@ -48,5 +46,3 @@ Only fully configurable chat-system with formating through MiniMessage
 ### In CLI
 `just go to project folder and open it with your command-line, after type "mvn package"`
 
-
-#### BY [LAZYBOAT TEAM](https://github.com/lazyboatTEAM/)

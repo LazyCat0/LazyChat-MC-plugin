@@ -1,0 +1,10 @@
+# Broadcast command
+BC_usage: Usage - /bc <message>
+BC_new_broadcast: <b><gold>New broadcast!</gold></b>
+BC_broadcast_by: Broadcast by<gold>
+# lazy-chat command
+LC_info: <color:#70c4ff>Lazy-Plugin "LazyChat"</color> <color:#70c4ff>Author of plugin - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>) <color:#70c4ff>Available on</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.
+LC_unknown_arg: <gold>Please, use <b>"/lc info"</b> or <b>"/lc reload"</b></gold>
+LC_reload_error: LazyChat has meet error while reloading -
+LC_reload: <green>LazyChat has successfully reloaded!</green>
+LC_cannot_use: <red>You <i>cannot</i> use this command!</red>

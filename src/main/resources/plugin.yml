@@ -1,18 +1,24 @@
 name: LazyChat
-version: 1.1
+version: 1.3
 main: lazy.dev.lazyChat.LazyChat
-description: An example plugin
-author: LazyBoat TEAM
+description: IDK
+author: LazyCato0o
 website: https://github.com/lazyboatTEAM/
 api-version: '1.21'
-prefix: LazyBoat-LazyChat
+prefix: LazyChat
 permissions:
   l-chat.reload:
     description: Gives access to reload plugin
     default: op
-  l-chat.info:
-    description: Gives access to see some useful info about plugin
-    default: not op
   l-chat.broadcast:
     description: Gives access to use /broadcast
     default: not op
+commands:
+  lazychat:
+    description: Main command of plugin.
+    aliases: [lc, l-chat, lazy-c, lazy-chat]
+    usage: /<command> <info/reload>
+  broadcast:
+    description: Broadcast a your message with better "style"
+    aliases: [bc]
+    usage: /<command> <message>

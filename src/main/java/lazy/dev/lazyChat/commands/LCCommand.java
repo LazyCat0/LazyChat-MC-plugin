@@ -1,50 +1,56 @@
 package lazy.dev.lazyChat.commands;
 
-import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.arguments.StringArgument;
+import io.papermc.paper.command.brigadier.BasicCommand;
+import io.papermc.paper.command.brigadier.CommandSourceStack;
+import lazy.dev.lazyChat.LanguageManager;
 import lazy.dev.lazyChat.LazyChat;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
-public class LCCommand {
+import java.util.Collection;
+import java.util.List;
+
+public class LCCommand implements CommandExecutor {
+    private final LanguageManager lang;
     private final LazyChat plugin;
     MiniMessage mm = MiniMessage.miniMessage();
-
-    public LCCommand(LazyChat plugin) {
+    public LCCommand(LazyChat plugin, LanguageManager lang) {
         this.plugin = plugin;
+        this.lang = lang;
     }
-    public void register() {
-        new CommandAPICommand("lc")
-                .withArguments(new StringArgument("action"))
-                .withAliases("l-chat", "lazy-chat")
-                .executes((sender, args) ->
-                        {
-                            String act = args.getRaw("action");
-                            assert act != null;
-                            if (act.equals(" reload") || sender.hasPermission("l-chat.reload")) {
-                                try {
-                                    plugin.reloadPluginConfig();
-                                    sender.sendMessage(Component.text("LazyChat has successfully reloaded!", NamedTextColor.GREEN));
-                                } catch (Exception e) {
-                                    sender.sendMessage(Component.text("LazyChat has meet error while reloading: " + e.getLocalizedMessage(), NamedTextColor.RED));
-                                    plugin.getLogger().severe("Plugin has found error while reloading: " + e.getMessage());
+    @Override
+    public boolean onCommand(CommandSender source, Command command, String label, String[] args) {
+        if (args.length == 0) {
+            source.sendMessage(lang.get("LC_unknown_arg"));
+            return true;
+        }
 
-                                }
-                            }
-                            if (act.equals(" info") || sender.hasPermission("l-chat.info")) {
-                                Component infoMessage = mm.deserialize("""
-                                        <color:#70c4ff>Lazy-Plugin "LazyChat"</color>
-                                        <color:#70c4ff>Author of plugin: LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)
-                                        <color:#70c4ff>Available on</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.""");
-                                sender.sendMessage(infoMessage);
-                            }
-                            else {
-                                sender.sendMessage(mm.deserialize("<b><red>Unknown argument, correct is \"info\" and \"reload\"</red></b>"));
-                            }
-                        }
-                );
+        String act = args[0].toLowerCase();
+        switch (act) {
+            case "reload":
+                if (!source.hasPermission("l-chat.reload")) {
+                    source.sendMessage("LC_cannot_use");
+                    return true;
+                }
+                try {
+                    plugin.reloadPluginConfig();
+                    source.sendMessage(lang.get("LC_reload"));
+                } catch (Exception e) {
+                    source.sendMessage(lang.get("LC_reload_error") + " " + e.getMessage());
+                    plugin.getLogger().severe("Plugin has found error while reloading: " + e.getMessage());
+                    return true;
+                }
+                break;
+            case "info":
+                source.sendMessage(lang.get("LC_info"));
+                break;
+            default:
+                source.sendMessage(lang.get("LC_unknown_arg"));
+                break;
+        }
+        return true;
     }
 }
-
-
