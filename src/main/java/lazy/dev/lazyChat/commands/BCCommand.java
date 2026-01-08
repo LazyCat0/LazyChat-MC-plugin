@@ -27,9 +27,11 @@ public class BCCommand implements CommandExecutor {
             return true;
         }
         String nonFormatedMessage = String.join(" ", args);
-        Component formatedMessage = mm.deserialize( lang.getNonFormated("BC_new_broadcast") + "\n\n" + nonFormatedMessage + "\n\n" + lang.getNonFormated("BC_broadcast_by") + source.getName() + "<reset>");
-        Player Players = (Player) Bukkit.getOnlinePlayers();
-        Players.sendMessage(formatedMessage);
+        Component formatedMessage = mm.deserialize("\n" + lang.getNonFormated("BC_new_broadcast") + "\n\n" + nonFormatedMessage + "<reset>\n\n" + lang.getNonFormated("BC_broadcast_by") + " " + source.getName() + "<reset>\n");
+        for (Player Players : Bukkit.getOnlinePlayers()) {
+            Players.sendMessage(formatedMessage);
+        }
+        source.getServer().getConsoleSender().sendMessage(formatedMessage);
         return true;
     }
 }

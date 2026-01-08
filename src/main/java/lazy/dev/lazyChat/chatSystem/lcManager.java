@@ -1,23 +1,38 @@
 package lazy.dev.lazyChat.chatSystem;
 
 import io.papermc.paper.event.player.AsyncChatEvent;
+import lazy.dev.lazyChat.LanguageManager;
 import lazy.dev.lazyChat.LazyChat;
+import lazy.dev.lazyChat.commands.muteCommand.MuteManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 
 public class lcManager implements Listener {
     private final ChatUtility chatUtility;
+    private final MuteManager muteManager;
+    private final LanguageManager lang;
 
-    public lcManager(LazyChat plugin) {
+    public lcManager(LazyChat plugin, MuteManager muteManager, LanguageManager languageManager) {
+        this.muteManager = muteManager;
         this.chatUtility = plugin.getChatUtility();
+        this.lang = languageManager;
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onAsyncChat(AsyncChatEvent event) {
         Player player = event.getPlayer();
+
+        if (muteManager.isMuted(player.getUniqueId())) {
+            event.setCancelled(true);
+
+            player.sendMessage(lang.get("Mute_you_muted"));
+            return;
+        }
+
         Component originalMessage = event.message();
         String plainText = PlainTextComponentSerializer.plainText().serialize(originalMessage);
 

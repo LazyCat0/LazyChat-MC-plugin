@@ -2,8 +2,18 @@
 BC_usage: Использование - /bc <сообщение>
 BC_new_broadcast: <b><gold>Новое объявление!</gold></b>
 BC_broadcast_by: Объявление от<gold>
+# Mute command
+Mute_usage: <gold>Использование - /lc-mute <mute/unmute> <имя игрока> <время для мута>
+Mute_player_muted: получил мут на
+Mute_player_unmute: был размучен
+Mute_you_unmuted: Вас только что размутили!
+Mute_set_time: Вам нужно поставить время - "10h", "1m" и так далее. h - часы, m - минуты, d - дни.
+Mute_unknown_time_format: Вы пытаетесь использовать неизвестный формат времени. Вам нужно использовать следующий - "10m" - где m - минуты, h - часы, d - дни.
 # lazy-chat command
-LC_info: <color:#70c4ff>Lazy-Plugin "LazyChat"</color> <color:#70c4ff>Автор плагина - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>) <color:#70c4ff>Доступен на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.
+LC_info:
+  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color>
+  - <color:#70c4ff>Автор плагина - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)
+  - <color:#70c4ff>Доступен на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.
 LC_unknown_arg: <gold>Пожайлуста, используйте <b>"/lc info"</b> или <b>"/lc reload"</b></gold>
 LC_reload_error: LazyChat встретил ошибку во время перезагрузки -
 LC_reload: <green>LazyChat успешно перезагружен!</green>

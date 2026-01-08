@@ -1,5 +1,5 @@
 name: LazyChat
-version: 1.3
+version: 1.4
 main: lazy.dev.lazyChat.LazyChat
 description: IDK
 author: LazyCato0o
@@ -12,7 +12,10 @@ permissions:
     default: op
   l-chat.broadcast:
     description: Gives access to use /broadcast
-    default: not op
+    default: op
+  l-chat.mute:
+    description: Gives access for mute players
+    default: op
 commands:
   lazychat:
     description: Main command of plugin.
@@ -22,3 +25,7 @@ commands:
     description: Broadcast a your message with better "style"
     aliases: [bc]
     usage: /<command> <message>
+  lc-mute:
+    description: Command for mute a player for a some time
+    aliases: [mute, m]
+    usage: /<command> <action> <player_name> <time>
