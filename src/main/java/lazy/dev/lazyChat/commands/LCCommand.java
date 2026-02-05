@@ -1,17 +1,11 @@
 package lazy.dev.lazyChat.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import lazy.dev.lazyChat.LanguageManager;
 import lazy.dev.lazyChat.LazyChat;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Collection;
-import java.util.List;
 
 public class LCCommand implements CommandExecutor {
     private final LanguageManager lang;
@@ -24,7 +18,7 @@ public class LCCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender source, Command command, String label, String[] args) {
         if (args.length == 0) {
-            source.sendMessage(lang.get("LC_unknown_arg"));
+            source.sendMessage(lang.getFormated("LC_unknown_arg"));
             return true;
         }
 
@@ -36,21 +30,24 @@ public class LCCommand implements CommandExecutor {
                     return true;
                 }
                 try {
-                    plugin.reloadPluginConfig();
-                    source.sendMessage(lang.get("LC_reload"));
+                    plugin.reloadConfig();
+                    plugin.chatUtility.reloadConfig();
+                    plugin.languageManager.loadLanguages(plugin);
+                    source.sendMessage(lang.getFormated("LC_reload"));
                 } catch (Exception e) {
-                    source.sendMessage(lang.get("LC_reload_error") + " " + e.getMessage());
+                    source.sendMessage(lang.getFormated("LC_reload_error") + " " + e.getMessage());
                     plugin.getLogger().severe("Plugin has found error while reloading: " + e.getMessage());
                     return true;
                 }
                 break;
             case "info":
-                source.sendMessage(lang.get("LC_info"));
+                source.sendMessage(lang.getFormated("LC_info"));
                 break;
             default:
-                source.sendMessage(lang.get("LC_unknown_arg"));
+                source.sendMessage(lang.getFormated("LC_unknown_arg"));
                 break;
         }
         return true;
     }
 }
+// by LazyCato0o

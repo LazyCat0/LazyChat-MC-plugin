@@ -1,24 +1,24 @@
 package lazy.dev.lazyChat.chatSystem;
 
 import lazy.dev.lazyChat.LazyChat;
-import lazy.dev.lazyChat.LazyChatConfig;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.platform.PlayerAdapter;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatUtility {
-    private final LazyChatConfig config;
+    private final JavaPlugin plugin;
     private final LuckPerms lp;
 
     public ChatUtility(LazyChat plugin, LuckPerms lp) {
-        this.config = new LazyChatConfig(plugin);
+        this.plugin = plugin;
         this.lp = lp;
     }
     public void reloadConfig() {
-        this.config.reload();
+        this.plugin.reloadConfig();
     }
 
     public String prefix(Player player) {
@@ -33,8 +33,8 @@ public class ChatUtility {
 
     public Component formatMessage(Player player, String message, boolean isGlobal) {
         String formatTemplate = isGlobal ?
-                config.getGlobalChatFormat() :
-                config.getLocalChatFormat();
+                plugin.getConfig().getString("global-chat-format", "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}") :
+                plugin.getConfig().getString("local-chat-format", "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}");
         String formatted = formatTemplate
                 .replace("{player}", player.getName())
                 .replace("{message}", message)
@@ -44,21 +44,33 @@ public class ChatUtility {
     }
 
     public boolean isGlobalChat(String message) {
-        return message.startsWith(config.getGlobalChatPrefix());
+        String prefix = plugin.getConfig().getString("global-chat-prefix", "");
+
+        if (prefix.isEmpty()) {
+            return true;
+        }
+
+        return message != null && message.startsWith(prefix);
     }
 
     public String getMessageContent(String originalMessage) {
-        if (isGlobalChat(originalMessage)) {
-            return originalMessage.substring(config.getGlobalChatPrefix().length()).trim();
+        String prefix = plugin.getConfig().getString("global-chat-prefix", "");
+        if (prefix.isEmpty()) {
+            return originalMessage;
         }
+        if (isGlobalChat(originalMessage)) {
+            return originalMessage.substring(prefix.length()).trim();
+        }
+
         return originalMessage;
     }
 
     public int getLocalChatRadius() {
-        return config.getLocalChatRadius();
+        return plugin.getConfig().getInt("local-chat-radius");
     }
 
     public boolean isConsoleLoggingEnabled() {
-        return config.isEnableConsoleLogging();
+        return plugin.getConfig().getBoolean("enable-console-logging", true);
     }
 }
+// by LazyCato0o

@@ -19,15 +19,15 @@ public class BCCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender source, Command command, String label, String[] args) {
         if (!source.hasPermission("l-chat.broadcast")) {
-            source.sendMessage(lang.get("LC_cannot_use"));
+            source.sendMessage(lang.getFormated("LC_cannot_use"));
             return true;
         }
         if (args.length == 0) {
-            source.sendMessage(lang.get("BC_usage"));
+            source.sendMessage(lang.getFormated("BC_usage"));
             return true;
         }
         String nonFormatedMessage = String.join(" ", args);
-        Component formatedMessage = mm.deserialize("\n" + lang.getNonFormated("BC_new_broadcast") + "\n\n" + nonFormatedMessage + "<reset>\n\n" + lang.getNonFormated("BC_broadcast_by") + " " + source.getName() + "<reset>\n");
+        Component formatedMessage = mm.deserialize("\n" + lang.getRaw("BC_new_broadcast") + "\n\n" + nonFormatedMessage + "<reset>\n\n" + lang.getRaw("BC_broadcast_by") + " " + source.getName() + "<reset>\n");
         for (Player Players : Bukkit.getOnlinePlayers()) {
             Players.sendMessage(formatedMessage);
         }
@@ -35,3 +35,4 @@ public class BCCommand implements CommandExecutor {
         return true;
     }
 }
+// by LazyCato0o

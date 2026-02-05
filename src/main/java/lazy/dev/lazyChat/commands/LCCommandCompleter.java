@@ -16,3 +16,4 @@ public class LCCommandCompleter implements TabCompleter {
         return List.of();
     }
 }
+// by LazyCato0o

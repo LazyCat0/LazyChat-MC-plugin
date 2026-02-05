@@ -29,7 +29,7 @@ public class lcManager implements Listener {
         if (muteManager.isMuted(player.getUniqueId())) {
             event.setCancelled(true);
 
-            player.sendMessage(lang.get("Mute_you_muted"));
+            player.sendMessage(lang.getFormated("Mute_you_muted"));
             return;
         }
 
@@ -78,4 +78,4 @@ public class lcManager implements Listener {
         }
     }
 }
-
+// by LazyCato0o

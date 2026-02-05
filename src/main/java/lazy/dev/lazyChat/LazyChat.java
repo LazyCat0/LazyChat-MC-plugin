@@ -13,7 +13,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LazyChat extends JavaPlugin {
     public static LazyChat instance;
-    private ChatUtility chatUtility;
+    public LanguageManager languageManager;
+    public ChatUtility chatUtility;
     private LuckPerms lp;
 
     @Override
@@ -21,7 +22,7 @@ public final class LazyChat extends JavaPlugin {
         saveDefaultConfig();
         MuteManager muteManager = new MuteManager(this);
         muteManager.LoadMuteList();
-        LanguageManager languageManager = new LanguageManager(this);
+        languageManager = new LanguageManager(this);
         languageManager.loadLanguages(this);
         RegisteredServiceProvider<LuckPerms> provider = getServer().getServicesManager().getRegistration(LuckPerms.class);
         instance = this;
@@ -41,8 +42,5 @@ public final class LazyChat extends JavaPlugin {
     public ChatUtility getChatUtility() {
         return chatUtility;
     }
-    public void reloadPluginConfig() {
-        reloadConfig();
-        chatUtility.reloadConfig();
-    }
 }
+// by LazyCato0o
