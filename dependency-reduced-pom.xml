@@ -4,7 +4,7 @@
   <groupId>lazy.dev</groupId>
   <artifactId>lazychat</artifactId>
   <name>lazychat</name>
-  <version>1.4</version>
+  <version>1.5</version>
   <build>
     <defaultGoal>clean package</defaultGoal>
     <resources>
