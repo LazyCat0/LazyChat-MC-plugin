@@ -44,19 +44,16 @@ jobs:
     - name: Create Automated Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: v${{ env.MOD_VERSION }}
-        name: "Sakuraland v${{ env.MOD_VERSION }}"
+        tag_name: v${{ env.PROJECT_VERSION }}
+        name: "Sakuraland v${{ env.PROJECT_VERSION }}"
         body: |
-            # [🔨] Автоматическая сборка плагина [🔨]
-            **[📝] Версия плагина:** `${{ env.PROJECT_VERSION }}` **[📝]**
-            
-            # [🔧] ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ [🔧]
-            **Ветка:** `${{ github.ref_name }}`
-            **Коммит:** `${{ github.sha }}`
-          prerelease: false
-          latest: true
-          draft: false
-          files: build/libs/*.jar
-          overwrite: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # [🌸] Автоматическая сборка плагина LazyChat [🌸]
+          **[📝] Версия мода:** `${{ env.PROJECT_VERSION }}` **[📝]**
+          # [🔧] ТЕХНИЧЕСКАЯ ИНФОРМАЦИЯ [🔧]
+          **Ветка:** `${{ github.ref_name }}`
+          **Коммит:** `${{ github.sha }}`
+        prerelease: false
+        latest: true
+        draft: false
+        files: target/*.jar
+        overwrite: true
