@@ -53,3 +53,4 @@ public class MuteManager {
         try { config.save(file); } catch (IOException e) { e.printStackTrace(); }
     }
 }
+// By LazyCato0o

@@ -1,5 +1,5 @@
 name: LazyChat
-version: 1.5
+version: 1.6
 main: lazy.dev.lazyChat.LazyChat
 description: IDK
 author: LazyCato0o
@@ -27,5 +27,5 @@ commands:
     usage: /<command> <message>
   lc-mute:
     description: Command for mute a player for a some time
-    aliases: [mute, m]
+    aliases: [l-mute, l-m, lm, lazy-mute, lazy-m]
     usage: /<command> <action> <player_name> <time>

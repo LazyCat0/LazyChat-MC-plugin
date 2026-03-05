@@ -1,17 +1,18 @@
-<img src="images_GitHub/LazyChatBanner.png" alt="LazyChat banner" height="58" width="450">
+# LazyChat
 
 This is just another lazy-plugin which can made your chat experience better
+
 <img src="images_GitHub/img.png" alt="img" width="600" height="52">
 
-<img src="images_GitHub/infoBanner_LC.png" alt="img2">
+## Additional info
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
 **Also, available on SpigotMC - [LazyChat on SpigotMC](https://www.spigotmc.org/resources/lazychat.130059/)**
-**LATEST AT THIS MOMENT PUBLIC VERSION - v1.4**
-## Recommended use this plugin with LuckPerms
+**LATEST AT THIS MOMENT PUBLIC VERSION - v1.6**
 
+*Recommended use this plugin with LuckPerms* 
 
-<img src="images_GitHub/WhatsPluginAdds_LC.png" alt="Whats Plugin Adds">
+# What's this plugin adds?
 
 Only fully configurable chat-system with formating through MiniMessage
 
@@ -32,17 +33,17 @@ Only fully configurable chat-system with formating through MiniMessage
 
 
 
-## Do is it support LuckyPerms prefixes?
+### Do is it support LuckyPerms prefixes?
 **Yes!**
 
 **For change prefix color you need use this command - `/lp user <player> meta setprefix "<red>[example_prefix]</red> "`**
 
-## What is "MiniMessage"?
+### What is "MiniMessage"?
 **This is a formating api which provided from Adventure api (Or just Paper feature)**
-## How to build it?
+### How to build it?
 
-### In Inteljl IDEA
+#### In Inteljl IDEA
 `click at maven icon, after on "lifecycle" and on "package"`
-### In CLI
+#### In CLI
 `just go to project folder and open it with your command-line, after type "mvn package"`
 

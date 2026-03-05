@@ -30,15 +30,25 @@ public class ChatUtility {
         String prefix = metaData.getPrefix();
         return prefix != null ? prefix : "";
     }
+    public String suffix(Player player) {
+        if (lp == null) {
+            return "";
+        }
+        PlayerAdapter<Player> adapter = lp.getPlayerAdapter(Player.class);
+        CachedMetaData metaData = adapter.getMetaData(player);
+        String suffix = metaData.getSuffix();
+        return suffix != null ? suffix : "";
+    }
 
     public Component formatMessage(Player player, String message, boolean isGlobal) {
         String formatTemplate = isGlobal ?
-                plugin.getConfig().getString("global-chat-format", "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}") :
-                plugin.getConfig().getString("local-chat-format", "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}");
+                plugin.getConfig().getString("global-chat-format", "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}") :
+                plugin.getConfig().getString("local-chat-format", "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}");
         String formatted = formatTemplate
                 .replace("{player}", player.getName())
                 .replace("{message}", message)
-                .replace("{prefix}", prefix(player));
+                .replace("{prefix}", prefix(player))
+                .replace("{suffix}", suffix(player));
 
         return MiniMessage.miniMessage().deserialize(formatted);
     }

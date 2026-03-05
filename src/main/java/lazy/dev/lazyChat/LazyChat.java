@@ -37,7 +37,7 @@ public final class LazyChat extends JavaPlugin {
         getCommand("lazychat").setExecutor(new LCCommand(this, languageManager));
         getCommand("lazychat").setTabCompleter(new LCCommandCompleter());
         getCommand("broadcast").setExecutor(new BCCommand(languageManager));
-        getCommand("lc-mute").setExecutor(new MuteCommand(muteManager, languageManager));
+        getCommand("l-mute").setExecutor(new MuteCommand(muteManager, languageManager));
     }
     public ChatUtility getChatUtility() {
         return chatUtility;

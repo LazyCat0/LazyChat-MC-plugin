@@ -66,8 +66,9 @@ public class MuteCommand implements CommandExecutor {
             }
             muteManager.mute(target.getUniqueId(), duration);
             sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_muted") + " " + args[2]));
-            target.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize("<red>" + lang.getRaw("Mute_you_muted") + args[2]));
+            target.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_muted") + args[2]));
         }
         return true;
     }
 }
+// By LazyCato0o

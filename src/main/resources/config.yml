@@ -1,5 +1,5 @@
 # Plugin language (en by default). Available: en_US (English), ru_RU (Russian), uk_UA (Ukrainian)
-# After changing plugin language, you need restart server.
+# After changing plugin language, you need reload language with /lc reload.
 lang: en_US
 # Local chat radius
 local-chat-radius: 100
@@ -8,8 +8,8 @@ global-chat-prefix: "!"
 # log messages to console (by default on true)
 enable-console-logging: true
 
-# Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckPerms
+# Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckPerms, {suffix} - suffix from LuckPerms.
 # Example for global message.
-global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}"
+global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
 # Example for local message.
-local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold> <gray>>>><reset> {message}"
+local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
