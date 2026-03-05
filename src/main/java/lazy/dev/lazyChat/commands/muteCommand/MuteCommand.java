@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.command.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class MuteCommand implements CommandExecutor {
     private final MuteManager muteManager;
     private final LanguageManager lang;
@@ -52,7 +54,7 @@ public class MuteCommand implements CommandExecutor {
         if (action.equals("unmute")) {
             muteManager.unmute(target.getUniqueId());
             sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getFormated("Mute_player_unmute")));
-            target.getPlayer().sendMessage(lang.getFormated("Mute_you_unmuted"));
+            Objects.requireNonNull(target.getPlayer()).sendMessage(lang.getFormated("Mute_you_unmuted"));
         }
         if (action.equals("mute")) {
             if (args.length < 3) {
@@ -66,7 +68,7 @@ public class MuteCommand implements CommandExecutor {
             }
             muteManager.mute(target.getUniqueId(), duration);
             sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_muted") + " " + args[2]));
-            target.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_muted") + args[2]));
+            Objects.requireNonNull(target.getPlayer()).sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_muted") + args[2]));
         }
         return true;
     }

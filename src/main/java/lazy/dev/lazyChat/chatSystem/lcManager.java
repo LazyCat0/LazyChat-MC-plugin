@@ -5,6 +5,7 @@ import lazy.dev.lazyChat.LanguageManager;
 import lazy.dev.lazyChat.LazyChat;
 import lazy.dev.lazyChat.commands.muteCommand.MuteManager;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,6 +15,7 @@ import org.bukkit.event.Listener;
 public class lcManager implements Listener {
     private final ChatUtility chatUtility;
     private final MuteManager muteManager;
+    private final MiniMessage mm = MiniMessage.miniMessage();
     private final LanguageManager lang;
 
     public lcManager(LazyChat plugin, MuteManager muteManager, LanguageManager languageManager) {
@@ -27,9 +29,8 @@ public class lcManager implements Listener {
         Player player = event.getPlayer();
 
         if (muteManager.isMuted(player.getUniqueId())) {
+            player.sendMessage(mm.deserialize(lang.getRaw("Mute_you_muted")));
             event.setCancelled(true);
-
-            player.sendMessage(lang.getFormated("Mute_you_muted"));
             return;
         }
 
