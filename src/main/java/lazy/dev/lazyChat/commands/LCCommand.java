@@ -6,6 +6,7 @@ import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class LCCommand implements CommandExecutor {
     private final LanguageManager lang;
@@ -16,7 +17,7 @@ public class LCCommand implements CommandExecutor {
         this.lang = lang;
     }
     @Override
-    public boolean onCommand(CommandSender source, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender source, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length == 0) {
             source.sendMessage(lang.getFormated("LC_unknown_arg"));
             return true;

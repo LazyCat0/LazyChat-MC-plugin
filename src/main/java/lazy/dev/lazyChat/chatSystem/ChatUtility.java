@@ -4,18 +4,21 @@ import lazy.dev.lazyChat.LazyChat;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.platform.PlayerAdapter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import javax.annotation.Nullable;
+
 public class ChatUtility {
     private final JavaPlugin plugin;
-    private final LuckPerms lp;
+    private LuckPerms lp;
 
-    public ChatUtility(LazyChat plugin, LuckPerms lp) {
+    public ChatUtility(LazyChat plugin) {
         this.plugin = plugin;
-        this.lp = lp;
+        if (plugin.getServer().getPluginManager().isPluginEnabled("LuckPerms")) this.lp = LuckPermsProvider.get();
     }
     public void reloadConfig() {
         this.plugin.reloadConfig();
@@ -25,18 +28,18 @@ public class ChatUtility {
         if (lp == null) {
             return "";
         }
-        PlayerAdapter<Player> adapter = lp.getPlayerAdapter(Player.class);
-        CachedMetaData metaData = adapter.getMetaData(player);
-        String prefix = metaData.getPrefix();
+        @Nullable PlayerAdapter<Player> adapter = lp.getPlayerAdapter(Player.class);
+        @Nullable CachedMetaData metaData = adapter.getMetaData(player);
+        @Nullable String prefix = metaData.getPrefix();
         return prefix != null ? prefix : "";
     }
     public String suffix(Player player) {
         if (lp == null) {
             return "";
         }
-        PlayerAdapter<Player> adapter = lp.getPlayerAdapter(Player.class);
-        CachedMetaData metaData = adapter.getMetaData(player);
-        String suffix = metaData.getSuffix();
+        @Nullable PlayerAdapter<Player> adapter = lp.getPlayerAdapter(Player.class);
+        @Nullable CachedMetaData metaData = adapter.getMetaData(player);
+        @Nullable String suffix = metaData.getSuffix();
         return suffix != null ? suffix : "";
     }
 

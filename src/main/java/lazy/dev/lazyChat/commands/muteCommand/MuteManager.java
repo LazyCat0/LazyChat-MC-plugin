@@ -15,9 +15,9 @@ public class MuteManager {
     private final FileConfiguration config;
     private final Map<UUID, Long> mutes = new HashMap<>();
     public MuteManager(JavaPlugin plugin) {
-        this.file = new File(plugin.getDataFolder(), "muted_players.yml");
+        this.file = new File(plugin.getDataFolder(), "data/muted_players.yml");
         if (!file.exists()) {
-            plugin.saveResource("muted_players.yml", false);
+            plugin.saveResource("data/muted_players.yml", false);
         }
         this.config = YamlConfiguration.loadConfiguration(file);
         LoadMuteList();
