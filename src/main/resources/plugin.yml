@@ -17,7 +17,7 @@ permissions:
   l-chat.mute:
     description: Gives access for mute players
     default: op
-  l-chat.plaque_format:
+  l-chat.sign_format:
     description: Allows to change plaque text
     default: op
 commands:

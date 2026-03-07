@@ -33,7 +33,7 @@ public class FormatCommand implements CommandExecutor {
             return true;
         }
 
-        if (!source.hasPermission("l-chat.plaque_format")) {
+        if (!source.hasPermission("l-chat.sign_format")) {
             source.sendMessage(lang.getFormated("LC_cannot_use"));
             return true;
         }
