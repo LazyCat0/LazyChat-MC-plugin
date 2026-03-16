@@ -44,6 +44,7 @@ public final class LazyChat extends JavaPlugin {
         Objects.requireNonNull(getCommand("sf")).setTabCompleter(new FormatCommandCompleter());
 
         if (getConfig().getInt("config version") != 2) {
+            getLogger().severe("Found that config version isn't compares with plugin version.");
             this.saveResource("config.yml", true);
         }
     }
