@@ -42,10 +42,10 @@ public class lcManager implements Listener {
 
         event.setCancelled(true);
 
-        String content = messageContent.substring(1).trim();
+        String content = originalMessage.toString().substring(1).trim();
 
         if (content.isEmpty()) {
-            event.getPlayer().sendMessage(lang.getFormated("Cannot send empty message"));
+            player.sendMessage(lang.getFormated("Cannot send empty message"));
             event.setCancelled(true);
             return;
         }
