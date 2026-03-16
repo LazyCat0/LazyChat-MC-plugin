@@ -42,6 +42,10 @@ public final class LazyChat extends JavaPlugin {
         Objects.requireNonNull(getCommand("l-mute")).setTabCompleter(new MuteCommandCompleter());
         Objects.requireNonNull(getCommand("sf")).setExecutor(new FormatCommand(this, languageManager));
         Objects.requireNonNull(getCommand("sf")).setTabCompleter(new FormatCommandCompleter());
+
+        if (getConfig().getInt("config version") != 2) {
+            this.saveResource("config.yml", true);
+        }
     }
     public ChatUtility getChatUtility() {
         return chatUtility;

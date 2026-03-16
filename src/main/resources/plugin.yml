@@ -1,5 +1,5 @@
 name: LazyChat
-version: 2.1
+version: 2.2
 main: lazy.dev.lazyChat.LazyChat
 description: IDK
 author: LazyCato0o
@@ -19,6 +19,9 @@ permissions:
     default: op
   l-chat.sign_format:
     description: Allows to change plaque text
+    default: op
+  l-chat.full-format-use:
+    description: Allows to use all features of MiniMessage formatting
     default: op
 commands:
   lazychat:

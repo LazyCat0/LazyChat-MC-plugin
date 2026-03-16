@@ -6,7 +6,7 @@
 
     <groupId>lazy.dev</groupId>
     <artifactId>lazychat</artifactId>
-    <version>2.1</version>
+    <version>2.2</version>
     <packaging>jar</packaging>
 
     <name>lazychat</name>
@@ -71,7 +71,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <outputDirectory>${project.basedir}/plugin jar's</outputDirectory>
+                    <outputDirectory>${project.basedir}/plugin_jar's</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,6 +1,8 @@
-# Plugin language (en by default). Available: en_US (English), ru_RU (Russian), uk_UA (Ukrainian)
-# After changing plugin language, you need reload language with /lc reload.
-lang: en_US
+config version: 2 # DO NOT CHANGE IT
+
+# Plugin language (English by default). Available: English, Russia, Ukrainian
+# After changing plugin language, you need restart server.
+lang: English
 # Local chat radius
 local-chat-radius: 100
 # Prefix for global chat (By default and most popular - "!")

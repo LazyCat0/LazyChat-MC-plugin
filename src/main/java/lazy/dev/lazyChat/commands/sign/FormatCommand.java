@@ -2,6 +2,7 @@ package lazy.dev.lazyChat.commands.sign;
 
 import lazy.dev.lazyChat.LanguageManager;
 import lazy.dev.lazyChat.LazyChat;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -56,7 +57,14 @@ public class FormatCommand implements CommandExecutor {
                         .skip(1)
                         .collect(Collectors.joining(" "));
 
-                var component = MiniMessage.miniMessage().deserialize(rawText);
+                if (rawText.contains("<newline>")) {
+                    if (!source.hasPermission("l-chat.full-format-use")) {
+                        source.sendMessage(lang.getFormated("CUNT cause DNHP"));
+                        return true;
+                    }
+                }
+
+                Component component = MiniMessage.miniMessage().deserialize(rawText);
                 side.line(line - 1, component);
                 sign.update();
             } catch (Exception e) {

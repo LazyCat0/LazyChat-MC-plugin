@@ -18,9 +18,9 @@ SFC_smth_went_wrong: Щось пішло не так. Можливо, варто
 
 # lazy-chat command
 LC_info:
-  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color>\n
-  - <color:#70c4ff>Автор плагіна - LazyCato0o</color> (<click:open_url:'https://ua.namemc.com/profile/LazyCato0o.1>>NameMc</color>\n
-  - <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>,  <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.\n
+  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color><newline>
+  - <color:#70c4ff>Автор плагіна - LazyCato0o</color> (<click:open_url:'https://ua.namemc.com/profile/LazyCato0o.1>>NameMc</color><newline>
+  - <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>,  <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.<newline>
 LC_unknown_arg: <gold>Будь ласка, використовуйте <b>"/lc info"</b> або <b>"/lc reload"</b></gold>
 LC_reload_error: LazyChat зустрів помилку під час перезавантаження -
 LC_reload: <green>LazyChat успішно перезавантажено!</green>
@@ -28,3 +28,5 @@ LC_cannot_use: <red>Ви <i>не можете</i> використовувати
 
 #other
 Only for players: <red>Only for players <i>(or admins)</i>!
+CUNT cause DNHP: Ви не можете використовувати тег newline, оскільки у вас недостатньо прав!
+Cannot send empty message: Ви не можете надіслати порожнє повідомлення!

@@ -5,9 +5,9 @@ BC_broadcast_by: Broadcast by<gold>
 # Mute command
 Mute_usage: <gold>Usage - /lc-mute <mute/unmute> <player_name> <time_for_mute>(m/h/d)
 Mute_player_muted: has got muted for
-Mute_you_muted: <red>You muted for a<r>
+Mute_you_muted: <red>You muted for a
 Mute_player_unmute: has got unmuted
-Mute_you_unmuted: <green>You just has got unmuted!<r>
+Mute_you_unmuted: <green>You just has got unmuted!
 Mute_set_time: You must set time - "10h", "1m" and by this way. h - hours, m - minutes, d - days.
 Mute_unknown_time_format: You trying to use unknown time format. You must use "10m" - where m - minutes.
 
@@ -18,8 +18,8 @@ SFC_smth_went_wrong: Something went wrong. Maybe you need look at sign or someth
 
 # lazy-chat command
 LC_info:
-  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color>\n
-  - <color:#70c4ff>Author of plugin - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)\n
+  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color><newline>
+  - <color:#70c4ff>Author of plugin - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)<newline>
   - <color:#70c4ff>Available on</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.\n
 LC_unknown_arg: <gold>Please, use <b>"/lc info"</b> or <b>"/lc reload"</b></gold>
 LC_reload_error: LazyChat has meet error while reloading -
@@ -28,3 +28,5 @@ LC_cannot_use: <red>You <i>cannot</i> use this command!</red>
 
 #other
 Only for players: <red>Only for players <i>(or admins)</i>!
+CUNT cause DNHP: <red>You cannot use the "newline" tag because you do not have enough rights!
+Cannot send empty message: <red>You cannot send empty message!

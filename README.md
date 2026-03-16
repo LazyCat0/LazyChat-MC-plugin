@@ -7,8 +7,7 @@ This is just another lazy-plugin which can made your chat experience better
 ## Additional info
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
-**Also, available on SpigotMC - [LazyChat on SpigotMC](https://www.spigotmc.org/resources/lazychat.130059/)**
-**LATEST AT THIS MOMENT PUBLIC VERSION - v1.6**
+**LATEST AT THIS MOMENT PUBLIC VERSION - v2.1**
 
 *Recommended use this plugin with LuckPerms* 
 

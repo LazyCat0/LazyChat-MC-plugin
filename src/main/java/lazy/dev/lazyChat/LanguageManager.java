@@ -22,9 +22,9 @@ public class LanguageManager {
     }
     public void loadLanguages(JavaPlugin plugin) {
         File dir = new File(plugin.getDataFolder(), "lang");
-        plugin.saveResource("lang/ru_RU.yml", true);
-        plugin.saveResource("lang/en_US.yml", true);
-        plugin.saveResource("lang/uk_UA.yml", true);
+        plugin.saveResource("lang/Russian.yml", true);
+        plugin.saveResource("lang/English.yml", true);
+        plugin.saveResource("lang/Ukrainian.yml", true);
         for (File file : Objects.requireNonNull(dir.listFiles())) {
             if (!file.getName().endsWith(".yml")) continue;
             String lang = file.getName().replace(".yml", "");

@@ -24,7 +24,7 @@ public class lcManager implements Listener {
         this.lang = languageManager;
     }
 
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler(priority = EventPriority.HIGH)
     public void onAsyncChat(AsyncChatEvent event) {
         Player player = event.getPlayer();
 
@@ -42,14 +42,23 @@ public class lcManager implements Listener {
 
         event.setCancelled(true);
 
+        String content = messageContent.substring(1).trim();
+
+        if (content.isEmpty()) {
+            event.getPlayer().sendMessage(lang.getFormated("Cannot send empty message"));
+            event.setCancelled(true);
+            return;
+        }
+
+
         if (isGlobal) {
-            sendGlobalMessage(player, messageContent);
+            sendGlobalMessage(player, messageContent, event);
         } else {
-            sendLocalMessage(player, messageContent);
+            sendLocalMessage(player, messageContent, event);
         }
     }
 
-    private void sendLocalMessage(Player sender, String message) {
+    private void sendLocalMessage(Player sender, String message, AsyncChatEvent e) {
         Component formattedMessage = chatUtility.formatMessage(sender, message, false);
         int radius = chatUtility.getLocalChatRadius();
 
@@ -57,6 +66,12 @@ public class lcManager implements Listener {
             if (onlinePlayer.getWorld().equals(sender.getWorld())) {
                 double distance = onlinePlayer.getLocation().distance(sender.getLocation());
                 if (distance <= radius) {
+                    if (message.contains("<newline>")) {
+                        if (!sender.hasPermission("l-chat.full-format-use")) {
+                            sender.sendMessage(lang.getFormated("CUNT cause DNHP"));
+                            e.setCancelled(true);
+                        }
+                    }
                     onlinePlayer.sendMessage(formattedMessage);
                 }
             }
@@ -67,10 +82,16 @@ public class lcManager implements Listener {
         }
     }
 
-    private void sendGlobalMessage(Player sender, String message) {
+    private void sendGlobalMessage(Player sender, String message, AsyncChatEvent e) {
         Component formattedMessage = chatUtility.formatMessage(sender, message, true);
 
         for (Player onlinePlayer : sender.getServer().getOnlinePlayers()) {
+            if (message.contains("<newline>")) {
+                if (!sender.hasPermission("l-chat.full-format-use")) {
+                    sender.sendMessage(lang.getFormated("CUNT cause DNHP"));
+                    e.setCancelled(true);
+                }
+            }
             onlinePlayer.sendMessage(formattedMessage);
         }
 
