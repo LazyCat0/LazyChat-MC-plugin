@@ -53,7 +53,7 @@ public class MuteCommand implements CommandExecutor {
 
         if (action.equals("unmute")) {
             muteManager.unmute(target.getUniqueId());
-            sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getFormated("Mute_player_unmute")));
+            sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_unmute")));
             Objects.requireNonNull(target.getPlayer()).sendMessage(lang.getFormated("Mute_you_unmuted"));
         }
         if (action.equals("mute")) {
@@ -68,7 +68,7 @@ public class MuteCommand implements CommandExecutor {
             }
             muteManager.mute(target.getUniqueId(), duration);
             sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_muted") + " " + args[2]));
-            Objects.requireNonNull(target.getPlayer()).sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_muted") + args[2]));
+            Objects.requireNonNull(target.getPlayer()).sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_just_muted") + args[2]));
         }
         return true;
     }

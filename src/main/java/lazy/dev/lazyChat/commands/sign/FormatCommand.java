@@ -30,7 +30,7 @@ public class FormatCommand implements CommandExecutor {
         Block targetBlock = player.getTargetBlockExact(5);
 
         if (!(source instanceof Player)) {
-            source.sendMessage(lang.getFormated("Only for players"));
+            source.sendMessage(lang.getFormated("ofp"));
             return true;
         }
 

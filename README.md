@@ -42,7 +42,7 @@ Only fully configurable chat-system with formating through MiniMessage
 ### How to build it?
 
 #### In Inteljl IDEA
-`click at maven icon, after on "lifecycle" and on "package"`
+`Just import the configuration at runConfigurations/Package plugin to jar.run.xml and run it`
 #### In CLI
 `just go to project folder and open it with your command-line, after type "mvn package"`
 

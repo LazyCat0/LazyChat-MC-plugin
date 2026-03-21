@@ -6,8 +6,9 @@ BC_broadcast_by: Оголошення від<gold>
 Mute_usage: <gold>Використовування - /mute <ім'я гравця> <час для мута>
 Mute_player_muted: отримав мут на
 Mute_player_unmute: був розмучений
-Mute_you_muted: <red>Вас щойно замутили на<r>
-Mute_you_unmuted: <green>Вас щойно розмутили!<r>
+Mute_you_muted: <red>Вас щойно замутили на
+Mute_you_just_muted: <red>Вас замутили!
+Mute_you_unmuted: <green>Вас щойно розмутили!
 Mute_set_time: Вам потрібно вказати час — «10h», «1m» і так далі. h — години, m — хвилини, d — дні.
 Mute_unknown_time_format: Ви намагаєтеся використати невідомий формат часу. Вам потрібно використовувати наступний — «10m» — де m — хвилини, h — години, d — дні.
 
@@ -27,6 +28,6 @@ LC_reload: <green>LazyChat успішно перезавантажено!</green
 LC_cannot_use: <red>Ви <i>не можете</i> використовувати цю команду!</red>
 
 #other
-Only for players: <red>Only for players <i>(or admins)</i>!
-CUNT cause DNHP: Ви не можете використовувати тег newline, оскільки у вас недостатньо прав!
-Cannot send empty message: Ви не можете надіслати порожнє повідомлення!
+ofp: <red>Only for players <i>(or admins)</i>!
+CUNT_cause_DNHP: <red>Ви не можете використовувати тег newline, оскільки у вас недостатньо прав!</red>
+CSEM: <red>Ви не можете надіслати порожнє повідомлення!</red>

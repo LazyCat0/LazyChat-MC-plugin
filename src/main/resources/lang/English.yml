@@ -5,7 +5,8 @@ BC_broadcast_by: Broadcast by<gold>
 # Mute command
 Mute_usage: <gold>Usage - /lc-mute <mute/unmute> <player_name> <time_for_mute>(m/h/d)
 Mute_player_muted: has got muted for
-Mute_you_muted: <red>You muted for a
+Mute_you_just_muted: <red>You muted for a
+Mute_you_muted: <red>You muted!
 Mute_player_unmute: has got unmuted
 Mute_you_unmuted: <green>You just has got unmuted!
 Mute_set_time: You must set time - "10h", "1m" and by this way. h - hours, m - minutes, d - days.
@@ -27,6 +28,6 @@ LC_reload: <green>LazyChat has successfully reloaded!</green>
 LC_cannot_use: <red>You <i>cannot</i> use this command!</red>
 
 #other
-Only for players: <red>Only for players <i>(or admins)</i>!
-CUNT cause DNHP: <red>You cannot use the "newline" tag because you do not have enough rights!
-Cannot send empty message: <red>You cannot send empty message!
+ofp: <red>Only for players <i>(or admins)</i>!
+CUNT_cause_DNHP: <red>You cannot use the "newline" tag because you do not have enough rights!
+CSEM: <red>You cannot send empty message!

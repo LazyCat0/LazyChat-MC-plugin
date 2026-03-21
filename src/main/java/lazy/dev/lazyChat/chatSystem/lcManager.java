@@ -42,10 +42,10 @@ public class lcManager implements Listener {
 
         event.setCancelled(true);
 
-        String content = originalMessage.toString().substring(1).trim();
+        String content = originalMessage.toString().substring(0).trim();
 
         if (content.isEmpty()) {
-            player.sendMessage(lang.getFormated("Cannot send empty message"));
+            player.sendMessage(lang.getFormated("CSEM"));
             event.setCancelled(true);
             return;
         }
@@ -68,7 +68,7 @@ public class lcManager implements Listener {
                 if (distance <= radius) {
                     if (message.contains("<newline>")) {
                         if (!sender.hasPermission("l-chat.full-format-use")) {
-                            sender.sendMessage(lang.getFormated("CUNT cause DNHP"));
+                            sender.sendMessage(lang.getFormated("CUNT_cause_DNHP"));
                             e.setCancelled(true);
                         }
                     }
@@ -88,7 +88,7 @@ public class lcManager implements Listener {
         for (Player onlinePlayer : sender.getServer().getOnlinePlayers()) {
             if (message.contains("<newline>")) {
                 if (!sender.hasPermission("l-chat.full-format-use")) {
-                    sender.sendMessage(lang.getFormated("CUNT cause DNHP"));
+                    sender.sendMessage(lang.getFormated("CUNT_cause_DNHP"));
                     e.setCancelled(true);
                 }
             }
