@@ -16,23 +16,23 @@ This is just another lazy-plugin which can made your chat experience better
 
 Only fully configurable chat-system with formating through MiniMessage
 ```yml
-    config version: 2 # DO NOT CHANGE IT
+config version: 2 # DO NOT CHANGE IT
 
-    # Plugin language (English by default). Available: English, Russia, Ukrainian
-    # After changing plugin language, you need restart server.
-    lang: English
-    # Local chat radius
-    local-chat-radius: 100
-    # Prefix for global chat (By default and most popular - "!")
-    global-chat-prefix: "!"
-    # log messages to console (by default on true)
-    enable-console-logging: true
+# Plugin language (English by default). Available: English, Russia, Ukrainian
+# After changing plugin language, you need restart server.
+lang: English
+# Local chat radius
+local-chat-radius: 100
+# Prefix for global chat (By default and most popular - "!")
+global-chat-prefix: "!"
+# log messages to console (by default on true)
+enable-console-logging: true
 
-    # Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckPerms, {suffix} - suffix from LuckPerms.
-    # Example for global message.
-    global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
-    # Example for local message.
-    local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
+# Messages examples. Placeholders: {player} - player-nickname, {message} - message, {prefix} - prefix from LuckPerms, {suffix} - suffix from LuckPerms.
+# Example for global message.
+global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
+# Example for local message.
+local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold>{player}</gold>{suffix} <gray>>>><reset> {message}"
 ```
 
 
