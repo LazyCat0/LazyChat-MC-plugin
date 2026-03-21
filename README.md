@@ -96,6 +96,6 @@ repositories {
 * Depend
 ```kotlin
 dependencies {
-    implementation("com.github.LazyCat0:LazyChat-MC-plugin:Tag")
+    implementation("com.github.LazyCat0:LazyChat-MC-plugin:X.X") // Replace with actual version
 }
 ```
