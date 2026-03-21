@@ -55,47 +55,47 @@ local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> {prefix}<reset><gold
 ### For maven
 * Repository
 ```xml
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 ```
 * Depend
 ```xml
-    <dependency>
-	    <groupId>com.github.LazyCat0</groupId>
-	    <artifactId>LazyChat-MC-plugin</artifactId>
-	    <version>X.X</version> <!-- Change to actual version -->
-	</dependency>
+<dependency>
+    <groupId>com.github.LazyCat0</groupId>
+    <artifactId>LazyChat-MC-plugin</artifactId>
+    <version>X.X</version> <!-- Change to actual version -->
+</dependency>
 ```
 ### For Gradle
 #### Groovy
 * Repository
 ```groovy
-	repositories {
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-    }
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
 ```
 * Depend
 ```groovy
-    dependencies {
-        implementation 'com.github.LazyCat0:LazyChat-MC-plugin:X.X' // Replace with actual version
-	}
+dependencies {
+    implementation 'com.github.LazyCat0:LazyChat-MC-plugin:X.X' // Replace with actual version
+}
 ```
 #### KTS
 * Repository
 ```kotlin
-    repositories {
-        mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-    }
+repositories {
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+}
 ```
 * Depend
 ```kotlin
-	dependencies {
-	        implementation("com.github.LazyCat0:LazyChat-MC-plugin:Tag")
-	}
+dependencies {
+    implementation("com.github.LazyCat0:LazyChat-MC-plugin:Tag")
+}
 ```
