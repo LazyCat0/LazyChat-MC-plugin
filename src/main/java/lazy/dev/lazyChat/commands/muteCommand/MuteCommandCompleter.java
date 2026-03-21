@@ -4,9 +4,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MuteCommandCompleter implements TabCompleter {
@@ -16,7 +19,14 @@ public class MuteCommandCompleter implements TabCompleter {
             return List.of("mute", "unmute");
         }
         if (args.length == 2) {
-            return List.of(Arrays.toString(Bukkit.getServer().getOfflinePlayers()));
+            List<String> playerNames = new ArrayList<>();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                playerNames.add(player.getName());
+            }
+            List<String> completions = new ArrayList<>();
+            StringUtil.copyPartialMatches(args[0], playerNames, completions);
+            Collections.sort(completions);
+            return completions;
         }
         if (args.length == 3) {
             return List.of("1m", "1h", "1d");
