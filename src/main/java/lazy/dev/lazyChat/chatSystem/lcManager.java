@@ -17,11 +17,13 @@ public class lcManager implements Listener {
     private final MuteManager muteManager;
     private final MiniMessage mm = MiniMessage.miniMessage();
     private final LanguageManager lang;
+    public static lcManager instance;
 
     public lcManager(LazyChat plugin, MuteManager muteManager, LanguageManager languageManager) {
         this.muteManager = muteManager;
         this.chatUtility = plugin.getChatUtility();
         this.lang = languageManager;
+        instance = this;
     }
 
     @EventHandler(priority = EventPriority.HIGH)
@@ -89,5 +91,29 @@ public class lcManager implements Listener {
             sender.getServer().getConsoleSender().sendMessage(formattedMessage);
         }
     }
+
+    public void SendLocalMessage(Player sender, String message) {
+        Component formattedMessage = chatUtility.formatMessage(sender, message, false);
+        int radius = chatUtility.getLocalChatRadius();
+        for (Player onlinePlayer : sender.getServer().getOnlinePlayers()) {
+            if (onlinePlayer.getWorld().equals(sender.getWorld()) &&
+                    onlinePlayer.getLocation().distance(sender.getLocation()) <= radius) {
+                onlinePlayer.sendMessage(formattedMessage);
+            }
+        }
+        if (chatUtility.isConsoleLoggingEnabled()) {
+            sender.getServer().getConsoleSender().sendMessage(formattedMessage);
+        }
+    }
+    public void SendGlobalMessage(Player sender, String message) {
+        Component formattedMessage = chatUtility.formatMessage(sender, message, true);
+        for (Player onlinePlayer : sender.getServer().getOnlinePlayers()) {
+            onlinePlayer.sendMessage(formattedMessage);
+        }
+        if (chatUtility.isConsoleLoggingEnabled()) {
+            sender.getServer().getConsoleSender().sendMessage(formattedMessage);
+        }
+    }
+
 }
 // by LazyCato0o
