@@ -14,22 +14,13 @@ public class MuteCommand implements CommandExecutor {
     private final MuteManager muteManager;
     private final LanguageManager lang;
 
-    private long parseTime(String input) {
-        try {
-            input = input.toLowerCase().trim();
-
-            if (input.endsWith("m")) {
-                return Long.parseLong(input.replace("m", "")) * 60 * 1000;
-            } else if (input.endsWith("h")) {
-                return Long.parseLong(input.replace("h", "")) * 60 * 60 * 1000;
-            } else if (input.endsWith("d")) {
-                return Long.parseLong(input.replace("d", "")) * 24 * 60 * 60 * 1000;
-            } else {
-                return Long.parseLong(input) * 60 * 1000;
-            }
-        } catch (NumberFormatException e) {
-            return -1;
-        }
+    private long parseTime(long amount, String unit) {
+        return switch (unit.toLowerCase()) {
+            case "minutes", "m", "min" -> amount * 60 * 1000;
+            case "hours", "h", "hour"  -> amount * 60 * 60 * 1000;
+            case "days", "d", "day"    -> amount * 24 * 60 * 60 * 1000;
+            default -> -1;
+        };
     }
 
     public MuteCommand(MuteManager muteManager, LanguageManager languageManager) {
@@ -57,18 +48,31 @@ public class MuteCommand implements CommandExecutor {
             Objects.requireNonNull(target.getPlayer()).sendMessage(lang.getFormated("Mute_you_unmuted"));
         }
         if (action.equals("mute")) {
-            if (args.length < 3) {
+            if (args.length < 4) {
                 sender.sendMessage(lang.getFormated("Mute_set_time"));
                 return true;
             }
-            long duration = parseTime(args[2]);
-            if (duration <= 0) {
+            try {
+                long amount = Long.parseLong(args[2]);
+                String unit = args[3];
+                long duration = parseTime(amount, unit);
+
+                if (duration <= 0) {
+                    sender.sendMessage(lang.getFormated("Mute_unknown_time_format"));
+                    return true;
+                }
+
+                muteManager.mute(target.getUniqueId(), duration);
+
+                String timeStr = amount + " " + unit;
+                sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_muted") + " " + timeStr));
+
+                if (target.isOnline() && target.getPlayer() != null) {
+                    target.getPlayer().sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_just_muted") + " " + timeStr));
+                }
+            } catch (NumberFormatException e) {
                 sender.sendMessage(lang.getFormated("Mute_unknown_time_format"));
-                return true;
             }
-            muteManager.mute(target.getUniqueId(), duration);
-            sender.sendMessage(MiniMessage.miniMessage().deserialize(target.getName() + " " + lang.getRaw("Mute_player_muted") + " " + args[2]));
-            Objects.requireNonNull(target.getPlayer()).sendMessage(MiniMessage.miniMessage().deserialize(lang.getRaw("Mute_you_just_muted") + args[2]));
         }
         return true;
     }

@@ -41,16 +41,6 @@ public class lcManager implements Listener {
         String messageContent = chatUtility.getMessageContent(plainText);
 
         event.setCancelled(true);
-
-        String content = originalMessage.toString().substring(0).trim();
-
-        if (content.isEmpty()) {
-            player.sendMessage(lang.getFormated("CSEM"));
-            event.setCancelled(true);
-            return;
-        }
-
-
         if (isGlobal) {
             sendGlobalMessage(player, messageContent, event);
         } else {

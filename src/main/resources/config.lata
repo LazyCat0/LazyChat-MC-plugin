@@ -1,0 +1,15 @@
+[meta]
+version = "1.2-snapshot"
+config-version = 3
+
+[settings]
+lang = "English" # Available: English, Russia, Ukrainian
+chat-radius = 100
+prefix = "!" # Prefix for use global chat. By default and most popular — "!"
+enable-console-logging = true # Enables logging to console
+[messages]
+# Messages examples. Placeholders: {p} - player-nickname, {m} - message, {pr} - prefix from LuckPerms, {s} - suffix from LuckPerms.
+# Example for global message.
+global-chat-format = "<dark_gray>|<green>G</green>|</dark_gray> {pr}<reset><gold>{p}</gold>{s} <gray>>>><reset> {m}"
+# Example for local message.
+local-chat-format = "<dark_gray>|<blue>L</blue>|</dark_gray> {pr}<reset><gold>{p}</gold>{s} <gray>>>><reset> {m}"

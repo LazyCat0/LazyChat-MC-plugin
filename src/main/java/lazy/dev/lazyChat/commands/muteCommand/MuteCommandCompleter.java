@@ -20,16 +20,16 @@ public class MuteCommandCompleter implements TabCompleter {
         }
         if (args.length == 2) {
             List<String> playerNames = new ArrayList<>();
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                playerNames.add(player.getName());
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                playerNames.add(p.getName());
             }
             List<String> completions = new ArrayList<>();
-            StringUtil.copyPartialMatches(args[0], playerNames, completions);
+            StringUtil.copyPartialMatches(args[2], playerNames, completions);
             Collections.sort(completions);
             return completions;
         }
-        if (args.length == 3) {
-            return List.of("1m", "1h", "1d");
+        if (args.length == 4) {
+            return List.of("minute", "hour", "day");
         }
         return List.of();
     }

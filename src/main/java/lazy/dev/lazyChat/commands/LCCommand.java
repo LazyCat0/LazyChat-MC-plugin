@@ -30,16 +30,16 @@ public class LCCommand implements CommandExecutor {
                     source.sendMessage("LC_cannot_use");
                     return true;
                 }
-                try {
-                    plugin.reloadConfig();
-                    plugin.chatUtility.reloadConfig();
-                    plugin.languageManager.loadLanguages(plugin);
-                    source.sendMessage(lang.getFormated("LC_reload"));
-                } catch (Exception e) {
-                    source.sendMessage(lang.getFormated("LC_reload_error") + " " + e.getMessage());
-                    plugin.getLogger().severe("Plugin has found error while reloading: " + e.getMessage());
-                    return true;
-                }
+               try {
+                   plugin.reloadLataConfig();
+                   plugin.chatUtility.reloadConfig();
+                   plugin.languageManager.loadLanguages(plugin);
+                   source.sendMessage(lang.getFormated("LC_reload"));
+               } catch (Exception e) {
+                   source.sendMessage(lang.getFormated("LC_reload_error") + " " + e.getMessage());
+                   plugin.getLogger().severe("Plugin has found error while reloading: " + e.getMessage());
+                   return true;
+               }
                 break;
             case "info":
                 source.sendMessage(lang.getFormated("LC_info"));
