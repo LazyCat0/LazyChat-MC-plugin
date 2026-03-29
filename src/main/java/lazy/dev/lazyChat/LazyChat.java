@@ -39,6 +39,7 @@ public final class LazyChat extends JavaPlugin {
         muteManager.LoadMuteList();
         languageManager = new LanguageManager(this);
         languageManager.loadLanguages(this);
+        config = new LataFile();
 
         instance = this;
 
@@ -48,6 +49,19 @@ public final class LazyChat extends JavaPlugin {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        new Checker(this).getLatestVersion(latest -> {
+            String currentVersion = "2.5-snap3";
+
+            if (currentVersion.equalsIgnoreCase(latest)) {
+                getLogger().info("You're using actual version.");
+            } else {
+                getLogger().warning("Wait, you not updated a lot!");
+                getLogger().warning("Current version: " + currentVersion);
+                getLogger().warning("New version: " + latest);
+                getLogger().warning("Download: https://github.com/LazyCat0/LazyChat-MC-plugin/releases");
+            }
+        });
 
         this.chatUtility = new ChatUtility(this);
         getServer().getPluginManager().registerEvents(new lcManager(this, muteManager ,languageManager), this);

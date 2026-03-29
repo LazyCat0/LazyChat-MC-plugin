@@ -1,5 +1,5 @@
 name: LazyChat
-version: 2.5
+version: 2.5-snap3
 main: lazy.dev.lazyChat.LazyChat
 description: IDK
 author: LazyCato0o
@@ -8,7 +8,6 @@ api-version: '1.21'
 prefix: LazyChat
 softdepend:
   - LuckPerms
-  - Skript
 permissions:
   l-chat.reload:
     description: Gives access to reload plugin
