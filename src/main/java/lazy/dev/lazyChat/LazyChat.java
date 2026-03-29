@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 public final class LazyChat extends JavaPlugin {
+    public static String currentVersion = "2.5-release";
     public static LazyChat instance;
     public LanguageManager languageManager;
     public ChatUtility chatUtility;
@@ -51,8 +52,6 @@ public final class LazyChat extends JavaPlugin {
         }
 
         new Checker(this).getLatestVersion(latest -> {
-            String currentVersion = "2.5-snap3";
-
             if (currentVersion.equalsIgnoreCase(latest)) {
                 getLogger().info("You're using actual version.");
             } else {
@@ -74,7 +73,7 @@ public final class LazyChat extends JavaPlugin {
         Objects.requireNonNull(getCommand("sf")).setExecutor(new FormatCommand(this, languageManager));
         Objects.requireNonNull(getCommand("sf")).setTabCompleter(new FormatCommandCompleter());
 
-        if (!config.get("meta", "inst-version").equals(3)) {
+        if (!config.get("meta", "config-version").equals(3)) {
             getLogger().severe("Found inst version that isn't compares with plugin version.");
             this.saveResource("config.lata", true);
         }
