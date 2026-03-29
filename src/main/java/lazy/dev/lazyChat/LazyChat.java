@@ -31,7 +31,7 @@ public final class LazyChat extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        saveResource(file.getPath(), false);
+        saveResource("config.lata", false);
     }
     @Override
     public void onEnable() {
