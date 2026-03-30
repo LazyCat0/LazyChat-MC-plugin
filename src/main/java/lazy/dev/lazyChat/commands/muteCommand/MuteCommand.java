@@ -30,7 +30,7 @@ public class MuteCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (!(sender instanceof Player player)) return true;
+        if (!(sender instanceof Player)) return true;
         if (args.length == 0) {
             sender.sendMessage(lang.getFormated("Mute_usage"));
             return true;
