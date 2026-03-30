@@ -1,5 +1,5 @@
 name: LazyChat
-version: 2.5-release
+version: 2.6-snap5
 main: lazy.dev.lazyChat.LazyChat
 description: IDK
 author: LazyCato0o
@@ -37,7 +37,3 @@ commands:
     description: Command for mute a player for a some time
     aliases: [l-mute, l-m, lm, lazy-mute, lazy-m]
     usage: /<command> <action> <player_name> <time>
-  sf:
-    description: Command for customize sign
-    aliases: [sign-format, s-format, sign-f]
-    usage: /<command> <line> <text>

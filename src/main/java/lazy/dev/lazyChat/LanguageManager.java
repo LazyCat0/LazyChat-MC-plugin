@@ -16,7 +16,7 @@ public class LanguageManager {
     private final MiniMessage mm = MiniMessage.miniMessage();
     private final FileConfiguration lang;
     public LanguageManager(JavaPlugin plugin) {
-        String defaultLang = plugin.getConfig().getString("lang", "en_US");
+        String defaultLang = plugin.getConfig().getString("options.language", "English");
         loadLanguages(plugin);
         this.lang = languages.get(defaultLang);
     }

@@ -31,7 +31,7 @@ public class LCCommand implements CommandExecutor {
                     return true;
                 }
                try {
-                   plugin.reloadLataConfig();
+                   plugin.reloadConfig();
                    plugin.chatUtility.reloadConfig();
                    plugin.languageManager.loadLanguages(plugin);
                    source.sendMessage(lang.getFormated("LC_reload"));
