@@ -1,6 +1,5 @@
 package lazy.dev.lazyChat.chatSystem;
 
-import lazy.dev.lazyChat.LazyChat;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
@@ -9,14 +8,15 @@ import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.platform.PlayerAdapter;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nullable;
 
 public class ChatUtility {
-    private final LazyChat plugin;
+    private final JavaPlugin plugin;
     private LuckPerms lp;
 
-    public ChatUtility(LazyChat plugin) {
+    public ChatUtility(JavaPlugin plugin) {
         this.plugin = plugin;
         if (plugin.getServer().getPluginManager().isPluginEnabled("LuckPerms")) this.lp = LuckPermsProvider.get();
     }

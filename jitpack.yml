@@ -10,4 +10,4 @@ before_install:
   - mvn -version
 
 install:
-  - mvn clean install -DskipTests
+  - mvn clean install -DskipTests -pl community -am

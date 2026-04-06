@@ -6,10 +6,23 @@
 
     <groupId>lazy.dev</groupId>
     <artifactId>lazychat</artifactId>
-    <version>2.6-snap7</version>
-    <packaging>jar</packaging>
+    <version>2.7-snap1</version>
+    <packaging>pom</packaging>
 
     <name>lazychat</name>
+
+    <modules>
+        <module>community</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>full</id>
+            <modules>
+                <module>premium</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <properties>
         <java.version>21</java.version>
@@ -31,14 +44,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <relocations>
-                        <relocation>
-                            <pattern>com.github.LazyCat0.LataFile</pattern>
-                            <shadedPattern>lazy.dev.lazyChat.lata</shadedPattern>
-                        </relocation>
-                    </relocations>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

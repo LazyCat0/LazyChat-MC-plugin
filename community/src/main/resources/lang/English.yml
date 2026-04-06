@@ -31,3 +31,6 @@ LC_cannot_use: <red>You <i>cannot</i> use this command!</red>
 ofp: <red>Only for players <i>(or admins)</i>!
 CUNT_cause_DNHP: <red>You cannot use the "newline" tag because you do not have enough rights!
 CSEM: <red>You cannot send empty message!
+
+DHL: Doesn't have lore
+none: Nothing

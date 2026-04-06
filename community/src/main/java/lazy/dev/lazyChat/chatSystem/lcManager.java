@@ -43,16 +43,11 @@ public class lcManager implements Listener {
         boolean isGlobal = chatUtility.isGlobalChat(plainText);
         String messageContent = chatUtility.getMessageContent(plainText);
 
-        Component formattedMessage = mm.deserialize(
-                messageContent,
-                Placeholder.parsed("item", player.getInventory().getItemInMainHand().getItemMeta().itemName().toString())
-                );
-
         event.setCancelled(true);
         if (isGlobal) {
-            sendGlobalMessage(player, formattedMessage.toString(), event);
+            sendGlobalMessage(player, messageContent, event);
         } else {
-            sendLocalMessage(player, formattedMessage.toString(), event);
+            sendLocalMessage(player, messageContent, event);
         }
     }
 
