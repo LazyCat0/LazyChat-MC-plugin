@@ -1,24 +1,35 @@
 config-version: 5
 
 options:
-  language: "English" # Available: English, Russia, Ukrainian
-  chat-radius: 100
-  enable-logging: true # Enables logging to console
+  language: "English" # Available: English, Russia, Ukrainian.
+  chat-radius: 100 # Radius, in that chat will work.
+  whisper-radius: 10 # Radius, in that /whisp will work.
+  enable-logging: true # Enables logging to console.
 
 templates:
   global: "<dark_gray>|<green>G</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
   local: "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
-  # Example template for custom chat
+  # Example template for custom chat.
   #business: "<gray>[<gold>$</gold>]</gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
 
 chats:
   global:
-    template: "templates.global" # Template for global chat
-    prefix: "!" # Prefix for use global chat. By default, and most popular — "!"
+    template: "templates.global" # Template for global chat.
+    prefix: "!" # Prefix for use global chat. By default, and most popular — "!".
   local:
-    template: "templates.local" # Template for local chat
-    prefix: "" # Not set cause isn't need
-  # Example chat - Business chat
+    template: "templates.local" # Template for local chat.
+    prefix: "" # Not set cause isn't need.
+  # Example chat - Business chat.
   #business:
   #  template: "templates.business"
   #  prefix: ["$", ";"] # Supports aliases
+
+blacklist:
+  colors: false # Disables able for players for use colors. By default, disabled.
+  gradients: false # Disables able for players for use gradients. By default, disabled.
+  signs: false # Disables able for players for use MiniMessage on signs. By default, disabled.
+  dm: false # Disables able for players for use MiniMessage in direct messages. By default, disabled.
+  whisper: false # Disables able for players for use whisper. By default, disabled.
+  tags: # Disables custom (and not only) tags.
+    - newline
+    - obf
