@@ -8,7 +8,9 @@ This is just another lazy-plugin which can made your chat experience better
 
 **Available [on modrinth](https://modrinth.com/plugin/lazychat)**
 
-**LATEST AT THIS MOMENT PUBLIC VERSION - v2.6-release**
+**LATEST AT THIS MOMENT PUBLIC VERSION - v2.7-release**
+
+**This is latest free\non-paid version of this plugin. Also, in future may be a some updates, like formatting the books and a lot other things.**
 
 *Recommended use this plugin with LuckPerms* 
 

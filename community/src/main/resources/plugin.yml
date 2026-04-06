@@ -1,5 +1,5 @@
 name: LazyChat-Community
-version: 2.7-snap1
+version: 2.7-release
 main: lazy.dev.lazyChat.LazyChat
 description: LazyChat but community
 author: LazyCato0o
@@ -36,4 +36,4 @@ commands:
   l-mute:
     description: Command for mute a player for a some time
     aliases: [l-mute, l-m, lm, lazy-mute, lazy-m]
-    usage: /<command> <action> <player_name> <time>
+    usage: /<command> <action> <player_name> <time_number> <time_type>

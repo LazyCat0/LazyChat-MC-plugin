@@ -6,7 +6,7 @@
 
     <groupId>lazy.dev</groupId>
     <artifactId>lazychat</artifactId>
-    <version>2.7-snap1</version>
+    <version>2.7-release</version>
     <packaging>pom</packaging>
 
     <name>lazychat</name>

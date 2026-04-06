@@ -3,13 +3,13 @@ BC_usage: <gold>Использование - /bc <сообщение>
 BC_new_broadcast: <b><gold>Новое объявление!</gold></b>
 BC_broadcast_by: Объявление от<gold>
 # Mute command
-Mute_usage: <gold>Использование - /lc-mute <mute/unmute> <имя игрока> <время для мута>
+Mute_usage: <gold>Использование - /lc-mute <mute/unmute> <имя игрока> <время> <h/m/d>. h - часы, m - минуты, d - дни.
 Mute_player_muted: получил мут на
 Mute_player_unmute: был размучен
 Mute_you_just_muted: <red>Вас только что лишили права говорить на
 Mute_you_muted: <red>Вы лишены права говорить!
 Mute_you_unmuted: <green>Вас только что размутили!
-Mute_set_time: Вам нужно поставить время - "10h", "1m" и так далее. h - часы, m - минуты, d - дни.
+Mute_set_time: Вам нужно поставить время - "10 h", "1 m" и так далее. h - часы, m - минуты, d - дни.
 Mute_unknown_time_format: Вы пытаетесь использовать неизвестный формат времени. Вам нужно использовать следующий - "10m" - где m - минуты, h - часы, d - дни.
 
 # Sign formatting command — sfc
