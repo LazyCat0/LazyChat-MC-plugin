@@ -6,7 +6,7 @@
 
     <groupId>lazy.dev</groupId>
     <artifactId>lazychat</artifactId>
-    <version>2.6-snap5</version>
+    <version>2.6-snap7</version>
     <packaging>jar</packaging>
 
     <name>lazychat</name>
@@ -14,7 +14,6 @@
     <properties>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>2.2.0</kotlin.version>
     </properties>
 
     <build>

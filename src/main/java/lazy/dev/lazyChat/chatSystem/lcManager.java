@@ -6,6 +6,7 @@ import lazy.dev.lazyChat.LazyChat;
 import lazy.dev.lazyChat.commands.muteCommand.MuteManager;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -42,11 +43,16 @@ public class lcManager implements Listener {
         boolean isGlobal = chatUtility.isGlobalChat(plainText);
         String messageContent = chatUtility.getMessageContent(plainText);
 
+        Component formattedMessage = mm.deserialize(
+                messageContent,
+                Placeholder.parsed("item", player.getInventory().getItemInMainHand().getItemMeta().itemName().toString())
+                );
+
         event.setCancelled(true);
         if (isGlobal) {
-            sendGlobalMessage(player, messageContent, event);
+            sendGlobalMessage(player, formattedMessage.toString(), event);
         } else {
-            sendLocalMessage(player, messageContent, event);
+            sendLocalMessage(player, formattedMessage.toString(), event);
         }
     }
 

@@ -9,4 +9,4 @@ prefix: "!" # Prefix for use global chat. By default, and most popular — "!"
 # Example for global message.
 global-chat-format: "<dark_gray>|<green>G</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m>"
 # Example for local message.
-local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold>{s} <gray>>>><reset> <m>"
+local-chat-format: "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m>"

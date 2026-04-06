@@ -56,8 +56,8 @@ public final class LazyChat extends JavaPlugin {
         Objects.requireNonNull(getCommand("l-mute")).setTabCompleter(new MuteCommandCompleter());
         getServer().getPluginManager().registerEvents(new SignListener(), this);
 
-        if (!getConfig().getString("config-version").equals(3)) {
-            getLogger().severe("Found inst version that isn't compares with plugin version.");
+        if (getConfig().getInt("config-version") != 3) {
+            getLogger().severe("Found config version that isn't compares with plugin version.");
             this.saveResource("config.yml", true);
         }
     }

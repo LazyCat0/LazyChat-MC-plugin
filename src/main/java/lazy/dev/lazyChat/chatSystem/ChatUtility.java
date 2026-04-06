@@ -45,7 +45,7 @@ public class ChatUtility {
 
     public Component formatMessage(Player player, String message, boolean isGlobal) {
         String formatTemplate = isGlobal ?
-                plugin.getConfig().getString("global-chat-format", "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold>{s} <gray>>>><reset> <m>") :
+                plugin.getConfig().getString("global-chat-format", "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m>") :
                 plugin.getConfig().getString("local-chat-format", "<dark_gray>|<green>G</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m>");
 
         return MiniMessage.miniMessage().deserialize(
