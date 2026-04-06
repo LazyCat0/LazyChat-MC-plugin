@@ -1,0 +1,24 @@
+config-version: 5
+
+options:
+  language: "English" # Available: English, Russia, Ukrainian
+  chat-radius: 100
+  enable-logging: true # Enables logging to console
+
+templates:
+  global: "<dark_gray>|<green>G</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  local: "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  # Example template for custom chat
+  #business: "<gray>[<gold>$</gold>]</gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+
+chats:
+  global:
+    template: "templates.global" # Template for global chat
+    prefix: "!" # Prefix for use global chat. By default, and most popular — "!"
+  local:
+    template: "templates.local" # Template for local chat
+    prefix: "" # Not set cause isn't need
+  # Example chat - Business chat
+  #business:
+  #  template: "templates.business"
+  #  prefix: ["$", ";"] # Supports aliases
