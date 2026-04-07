@@ -1,36 +1,32 @@
-# Команда объявления
-BC_usage: <gold>Использование - /bc <сообщение>
-BC_new_broadcast: <b><gold>Новое объявление!</gold></b>
-BC_broadcast_by: Объявление от<gold>
-# Mute command
-Mute_usage: <gold>Использование - /lc-mute <mute/unmute> <имя игрока> <время для мута>
-Mute_player_muted: получил мут на
-Mute_player_unmute: был размучен
-Mute_you_just_muted: <red>Вас только что лишили права говорить на
-Mute_you_muted: <red>Вы лишены права говорить!
-Mute_you_unmuted: <green>Вас только что размутили!
-Mute_set_time: Вам нужно поставить время - "10h", "1m" и так далее. h - часы, m - минуты, d - дни.
-Mute_unknown_time_format: Вы пытаетесь использовать неизвестный формат времени. Вам нужно использовать следующий - "10m" - где m - минуты, h - часы, d - дни.
-
-# Sign formatting command — sfc
-SFC_usage: Использование - /pf <строка таблички (от 1 до 4)> Текст который тоже имеет поддержку MiniMessage!
-SFC_success: Вы успешно сменили текст на табличке!
-SFC_smth_went_wrong: Что-то пошло не так. Может стоит посмотреть на табличку или что-то ещё. Спросите Администратора сервера.
-
-# lazy-chat command
-LC_info:
-  - <color:#70c4ff>Lazy-Plugin "LazyChat"</color><newline>
-  - <color:#70c4ff>Автор плагина - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)<newline>
-  - <color:#70c4ff>Доступен на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.<newline>
-LC_unknown_arg: <gold>Пожайлуста, используйте <b>"/lc info"</b> или <b>"/lc reload"</b></gold>
-LC_reload_error: LazyChat встретил ошибку во время перезагрузки -
-LC_reload: <green>LazyChat успешно перезагружен!</green>
-LC_cannot_use: <red>Вы <i>не можете</i> использовать эту комманду!</red>
-
-#other
-ofp: <red>Только для игроков <i>(иль админов)</i>!
-CUNT_cause_DNHP:  <red>Вы не можете использовать тег "newline" так как у вас недостаточно прав!
-CSEM: <red>Вы не можете отправить пустое сообщение!
-
-DHL: Не имеет описания
-none: Ничего
+broadcast:
+  command:
+    usage: "<gold>Использование - /bc <сообщение>"
+  message:
+    new-broadcast: "<b><gold>Новое объявление!</gold></b>"
+    broadcast-by: "<gold>Объявление от <reset><prefix> <player> <suffix>"
+mute:
+  command:
+    usage: "<gold>Использование - /lc-mute <mute/unmute> <имя_игрока> <время_мута>(m/h/d)"
+    set_time: "Вы должны указать время — «10 h», «1 m» и т.д. h — часы, m — минуты, d — дни."
+    unknown_format: "Вы используете неизвестный формат времени. Используйте «10 m», где m — минуты."
+  message:
+    muted: "<red><player> был замучен на <time>!"
+    yj_muted: "<red>Вы были замучены на <time>!"
+    you_muted: "<red>Вы замучены!"
+    unmuted: "<green><player> был размучен!"
+    yj_unmuted: "<green>Вы были размучены!</green>"
+lazychat:
+  messages:
+    info:
+      - "<color:#70c4ff>Lazy-плагин \"LazyChat\"</color><newline>"
+      - "<color:#70c4ff>Автор плагина - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)<newline>"
+      - "<color:#70c4ff>Доступен на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.<newline>"
+    reload:
+      success: "<green>LazyChat успешно перезагружен!</green>"
+      error: "<red>Ошибка при перезагрузке LazyChat - <e_message>"
+    cannot_use: "<red>Вы <i>не можете</i> использовать эту команду!"
+    usage: "<gold>Использование - /lc <reload> или <info>."
+other:
+  ofp: "<red>Только для игроков <i>(или админов)</i>!"
+  CUNT_cause_DNHP: "<red>Вы не можете использовать некоторые теги, так как у вас недостаточно прав!"
+  CSEM: "<red>Вы не можете отправить пустое сообщение!"

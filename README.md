@@ -10,7 +10,7 @@ This is just another lazy-plugin which can made your chat experience better
 
 **LATEST AT THIS MOMENT PUBLIC VERSION - v2.7-release**
 
-**This is latest free\non-paid version of this plugin. Also, in future may be a some updates, like formatting the books and a lot other things.**
+**This is latest LEGACY plugin version. Newest will release not so soon.**
 
 *Recommended use this plugin with LuckPerms* 
 

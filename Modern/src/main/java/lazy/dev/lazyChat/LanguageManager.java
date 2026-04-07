@@ -15,10 +15,12 @@ public class LanguageManager {
     private final Map<String, FileConfiguration> languages = new HashMap<>();
     private final MiniMessage mm = MiniMessage.miniMessage();
     private final FileConfiguration lang;
+    private final FileConfiguration fallbackLang;
     public LanguageManager(JavaPlugin plugin) {
         String defaultLang = plugin.getConfig().getString("options.language", "English");
         loadLanguages(plugin);
         this.lang = languages.get(defaultLang);
+        this.fallbackLang = languages.get("English");
     }
     public void loadLanguages(JavaPlugin plugin) {
         File dir = new File(plugin.getDataFolder(), "lang");
@@ -32,12 +34,18 @@ public class LanguageManager {
         }
     }
 
-    public String getRaw(String path) {
-        @NotNull String raw = Objects.requireNonNull(lang.getString(path));
+    public String getRaw(@NotNull String path) {
+        String raw = lang.getString(path);
+        if (raw == null && fallbackLang != null) {
+            return fallbackLang.getString(path);
+        }
         return raw;
     }
     public Component getFormated(@NotNull String path) {
-        @NotNull String raw = Objects.requireNonNull(lang.getString(path));
+        String raw = getRaw(path);
+        if (raw.isEmpty() && fallbackLang != null) {
+            return mm.deserialize(fallbackLang.getString(path));
+        }
         return mm.deserialize(raw);
     }
 }

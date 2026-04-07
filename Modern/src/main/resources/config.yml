@@ -22,11 +22,17 @@ chats:
     prefix: "" # Not set cause isn't need.
   whisper:
     template: "templates.whisper"
-    prefix: ["*", "_", "~"]
+    prefix: ["*", "_", "~"] # Supports aliases
+  # Example chat with perms - Admin chat.
+  #admin:
+  #  template: "templates.admin"
+  #  prefix: [":", "^"]
+  #  perm: "lazychat.admin" # Able for set perm for chat. If not set, perm will be = none.
+    # If player do not have perm — He cannot read and send messages in this chat. If he try — in chat will send only text with prefix that DO NOT work.
   # Example chat - Business chat.
   #business:
   #  template: "templates.business"
-  #  prefix: ["$", ";"] # Supports aliases
+  #  prefix: ["$", ";"]
 
 blacklist:
   colors: false # Disables able for players for use colors. By default, disabled.
