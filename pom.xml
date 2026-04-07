@@ -12,14 +12,14 @@
     <name>lazychat</name>
 
     <modules>
-        <module>community</module>
+        <module>Legacy</module>
     </modules>
 
     <profiles>
         <profile>
             <id>full</id>
             <modules>
-                <module>premium</module>
+                <module>Modern</module>
             </modules>
         </profile>
     </profiles>

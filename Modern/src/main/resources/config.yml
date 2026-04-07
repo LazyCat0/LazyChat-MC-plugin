@@ -2,13 +2,14 @@ config-version: 5
 
 options:
   language: "English" # Available: English, Russia, Ukrainian.
-  chat-radius: 100 # Radius, in that chat will work.
-  whisper-radius: 10 # Radius, in that /whisp will work.
+  chat-radius: 100 # Radius, in that local chat will work.
+  whisper-radius: 10 # Radius, in that whisper will work.
   enable-logging: true # Enables logging to console.
 
 templates:
-  global: "<dark_gray>|<green>G</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
-  local: "<dark_gray>|<blue>L</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  global: "<dark_gray>|<green>♦</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  local: "<dark_gray>|<blue>♢</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  whisper: "<dark_gray>[<gray>♨</gray>]</dark_gray> <prefix><reset><gold> <nickname></gold> <suffix> <gray>~~~<reset> <m><reset>"
   # Example template for custom chat.
   #business: "<gray>[<gold>$</gold>]</gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
 
@@ -19,6 +20,9 @@ chats:
   local:
     template: "templates.local" # Template for local chat.
     prefix: "" # Not set cause isn't need.
+  whisper:
+    template: "templates.whisper"
+    prefix: ["*", "_", "~"]
   # Example chat - Business chat.
   #business:
   #  template: "templates.business"

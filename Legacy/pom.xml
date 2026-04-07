@@ -16,7 +16,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>lazychat-community</artifactId>
+  <artifactId>Legacy</artifactId>
   <packaging>jar</packaging>
 
   <build>
