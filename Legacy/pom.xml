@@ -9,17 +9,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <parent>
-    <groupId>lazy.dev</groupId>
-    <artifactId>lazychat</artifactId>
-    <version>2.8</version>
-    <relativePath>../pom.xml</relativePath>
-  </parent>
-
-  <artifactId>lazychat_l</artifactId>
+  <artifactId>Lazychat_Legacy</artifactId>
   <name>LazyChat [Legacy]</name>
-  <version>2.7 - patch1</version>
   <packaging>jar</packaging>
+  <groupId>lazychat</groupId>
+  <version>2.7-patch1</version>
 
   <build>
     <defaultGoal>clean package</defaultGoal>
@@ -55,13 +49,41 @@
     </resources>
   </build>
 
+
+
   <repositories>
-      <repository>
-        <id>papermc-repo</id>
-        <url>https://repo.papermc.io/repository/maven-public/</url>
-      </repository>
+    <repository>
+      <id>papermc-repo</id>
+      <url>https://repo.papermc.io/repository/maven-public/</url>
+    </repository>
+    <repository>
+      <id>luckperms-repo</id>
+      <url>https://repo.lucko.me/</url>
+    </repository>
   </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>net.luckperms</groupId>
+      <artifactId>api</artifactId>
+      <version>5.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-api</artifactId>
+      <version>5.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-text-minimessage</artifactId>
+      <version>5.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.papermc.paper</groupId>
+      <artifactId>paper-api</artifactId>
+      <version>1.21-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>

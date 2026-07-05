@@ -1,5 +1,5 @@
 name: LazyChat-M
-version: '2.8-snap5'
+version: '${version}'
 main: dev.lazycat.lazyChat.LazyChat
 description: LazyChat but community
 author: LazyCato0o
