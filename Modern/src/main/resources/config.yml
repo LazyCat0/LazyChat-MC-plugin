@@ -1,45 +1,49 @@
 config-version: 5
 
+#  @      @@@  @@@@@ @   @  @@@  @   @  @@@  @@@@@            @   @  @@@  @@@@  @@@@@ @@@@  @   @
+#  @     @   @    @   @ @  @     @   @ @   @   @              @@ @@ @   @ @   @ @     @   @ @@  @
+#  @     @@@@@   @     @   @     @@@@@ @@@@@   @      @@@@    @ @ @ @   @ @   @ @@@@  @@@@  @ @ @
+#  @     @   @  @      @   @     @   @ @   @   @              @   @ @   @ @   @ @     @  @  @  @@
+#  @@@@@ @   @ @@@@@   @    @@@  @   @ @   @   @              @   @  @@@  @@@@  @@@@@ @   @ @   @
+
 options:
   language: "English" # Available: English, Russia, Ukrainian.
-  chat-radius: 100 # Radius, in that local chat will work.
-  whisper-radius: 10 # Radius, in that whisper will work.
   enable-logging: true # Enables logging to console.
-
-templates:
-  global: "<dark_gray>|<green>♦</green>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
-  local: "<dark_gray>|<blue>♢</blue>|</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
-  whisper: "<dark_gray>[<gray>♨</gray>]</dark_gray> <prefix><reset><gold> <nickname></gold> <suffix> <gray>~~~<reset> <m><reset>"
-  # Example template for custom chat.
-  #business: "<gray>[<gold>$</gold>]</gray> <prefix><reset><gold><nickname></gold><suffix> <gray>>>><reset> <m><reset>"
+  default: local
 
 chats:
   global:
-    template: "templates.global" # Template for global chat.
+    template: "global.yml" # Template for global chat. You can use formats like json or toml (WIP)
     prefix: "!" # Prefix for use global chat. By default, and most popular — "!".
+    radius: -1 # If -1 or 0 — global.
+    perm: "" # If not set or just empty, will allow everyone to use this chat
   local:
-    template: "templates.local" # Template for local chat.
+    template: "local.yml" # Template for local chat.
     prefix: "" # Not set cause isn't need.
+    radius: 100
   whisper:
-    template: "templates.whisper"
+    template: "whisper"
     prefix: ["*", "_", "~"] # Supports aliases
+    radius: 10
+    perm: "" # If not set or just empty, will allow everyone to use this chat
   # Example chat with perms - Admin chat.
   #admin:
-  #  template: "templates.admin"
+  #  template: "admin.yml"
   #  prefix: [":", "^"]
   #  perm: "lazychat.admin" # Able for set perm for chat. If not set, perm will be = none.
     # If player do not have perm — He cannot read and send messages in this chat. If he try — in chat will send only text with prefix that DO NOT work.
   # Example chat - Business chat.
   #business:
-  #  template: "templates.business"
+  #  template: "business.yml"
   #  prefix: ["$", ";"]
 
 blacklist:
-  colors: false # Disables able for players for use colors. By default, disabled.
-  gradients: false # Disables able for players for use gradients. By default, disabled.
-  signs: false # Disables able for players for use MiniMessage on signs. By default, disabled.
-  dm: false # Disables able for players for use MiniMessage in direct messages. By default, disabled.
-  whisper: false # Disables able for players for use whisper. By default, disabled.
-  tags: # Disables custom (and not only) tags.
-    - newline
-    - obf
+  chat:
+    colors: false # Disables able for players for use colors. By default, enabled (or on false).
+    gradients: false # Disables able for players for use gradients. By default, enabled (or on false).
+    tags: # Disables custom (and not only) tags.
+      - newline
+      - obf
+  signs: false # Disables able for players for use MiniMessage on signs. By default, enabled (or on false).
+  dm: false # Disables able for players for use MiniMessage in direct messages. By default, enabled (or on false).
+  whisper: false # Disables able for players for use whisper. By default, enabled (or on false).

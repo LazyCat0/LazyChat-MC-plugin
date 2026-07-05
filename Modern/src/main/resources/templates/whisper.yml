@@ -1,0 +1,13 @@
+config:
+  # <prefix> - Prefix from LuckPerms, <suffix> - same, but with suffix
+  # <nickname> - player nickname. <m> - message
+  # <icon> - player head
+  prompt: "<dark_gray>[<green>~</green>]</dark_gray> <prefix><reset><icon><gold><nickname></gold><suffix> <gray> >>> <m><reset>"
+blacklist:
+  global: true #if set to false, plugin will read blacklist from this place. Else, it will read from config.yml
+  # config:
+  #   colors: false # Disables able for players for use colors. By default, disabled.
+  #   gradients: false # Disables able for players for use gradients. By default, disabled.
+  #   tags: # Disables custom (and not only) tags.
+  #     - newline
+  #     - obf

@@ -1,0 +1,15 @@
+{
+  "config": {
+    "prompt": "<dark_gray>[<green>$</green>]</dark_gray> <prefix><reset><icon><gold><nickname></gold><suffix> <gray> >>> <m><reset>"
+  },
+  "blacklist": {
+    "global": false,
+    "config": {
+      "colors": false,
+      "gradients": false,
+      "tags": [
+        "newline", "obf", "b", "i"
+      ]
+    }
+  }
+}

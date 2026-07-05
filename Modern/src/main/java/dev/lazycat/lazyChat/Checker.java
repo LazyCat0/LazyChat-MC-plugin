@@ -1,4 +1,4 @@
-package lazy.dev.lazyChat;
+package dev.lazycat.lazyChat;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

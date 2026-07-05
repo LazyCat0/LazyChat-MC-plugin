@@ -1,6 +1,6 @@
-package lazy.dev.lazyChat.commands.muteCommand;
+package dev.lazycat.lazyChat.commands.muteCommand;
 
-import lazy.dev.lazyChat.LazyChat;
+import dev.lazycat.lazyChat.LazyChat;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
