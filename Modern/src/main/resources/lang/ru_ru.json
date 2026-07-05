@@ -1,0 +1,47 @@
+{
+  "broadcast": {
+    "command": {
+      "usage": "<gold>Использование - /bc <сообщение>"
+    },
+    "messages": {
+      "new-broadcast": "<b><gold>Новое объявление!</gold></b>",
+      "broadcast-by": "<gold>Объявление от <reset><prefix> <player> <suffix>"
+    }
+  },
+  "mute": {
+    "command": {
+      "usage": "<gold>Использование - /lc-mute <mute/unmute> <имя_игрока> <время_мута>(m/h/d)",
+      "set_time": "Вы должны указать время — «10 h», «1 m» и т.д. h — часы, m — минуты, d — дни.",
+      "unknown_format": "Вы используете неизвестный формат времени. Используйте «10 m», где m — минуты."
+    },
+    "messages": {
+      "muted": "<red><player> был замучен на <time>!",
+      "yj_muted": "<red>Вы были замучены на <time>!",
+      "you_muted": "<red>Вы замучены!",
+      "unmuted": "<green><player> был размучен!",
+      "yj_unmuted": "<green>Вы были размучены!</green>"
+    }
+  },
+  "lazychat": {
+    "messages": {
+      "cannot_use": "<red>Вы <i>не можете</i> использовать эту команду!",
+      "usage": "<gold>Использование - /lc <reload> или <info>.",
+      "info": [
+        "<color:#70c4ff>Lazy-плагин \"LazyChat\"</color><newline>",
+        "<color:#70c4ff>Автор плагина - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)<newline>",
+        "<color:#70c4ff>Доступен на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.<newline>"
+      ],
+      "reload": {
+        "reloading": "<gold>Перезагрузка...",
+        "success": "<green>LazyChat успешно перезагружен!</green>",
+        "error": "<red>Ошибка при перезагрузке LazyChat - <e_message>"
+      }
+    }
+  },
+  "other": {
+    "ofp": "<red>Только для игроков <i>(или админов)</i>!",
+    "CUNT_cause_DNHP": "<red>Вы не можете использовать некоторые теги, так как у вас недостаточно прав!",
+    "CSEM": "<red>Вы не можете отправить пустое сообщение!",
+    "not-enough-rights": "<red>У вас недостаточно прав чтобы отправить сообщение в этот чат!"
+  }
+}

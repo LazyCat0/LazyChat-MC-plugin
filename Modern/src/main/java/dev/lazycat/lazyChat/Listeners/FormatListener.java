@@ -1,4 +1,4 @@
-package lazy.dev.lazyChat.sign;
+package dev.lazycat.lazyChat.Listeners;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -6,15 +6,20 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
+//import org.bukkit.event.player.PlayerEditBookEvent;
+//import org.bukkit.inventory.meta.BookMeta;
+//
+//import java.util.ArrayList;
+//import java.util.List;
 
-public class SignListener implements Listener {
+public class FormatListener implements Listener {
     private final MiniMessage mm = MiniMessage.miniMessage();
 
     @EventHandler
     public void onSignChange(SignChangeEvent event) {
         Player player = event.getPlayer();
 
-        if (!player.hasPermission("l-chat.sign_format")) {
+        if (!player.hasPermission("l-chat.advance_format")) {
             return;
         }
 
@@ -35,4 +40,25 @@ public class SignListener implements Listener {
             event.line(i, formattedLine);
         }
     }
+//    @EventHandler
+//    public void onBookChange(PlayerEditBookEvent e) {
+//        Player player = e.getPlayer();
+//        if (!player.hasPermission("l-chat.advance_format")) return;
+//
+//        BookMeta meta = e.getNewBookMeta();
+//
+//        List<Component> pages = meta.pages();
+//
+//        List<Component> formattedPages = new ArrayList<>();
+//        for (Component pageComponent : pages) {
+//            String rawText = MiniMessage.miniMessage().serialize(pageComponent);
+//            Component formatted = MiniMessage.miniMessage().deserialize(rawText);
+//            formattedPages.add(formatted);
+//        }
+//
+//        meta.pages(formattedPages);
+//        e.setNewBookMeta(meta);
+//
+//
+//    }
 }

@@ -8,8 +8,6 @@ import lazy.dev.lazyChat.commands.LCCommandCompleter;
 import lazy.dev.lazyChat.commands.muteCommand.MuteCommand;
 import lazy.dev.lazyChat.commands.muteCommand.MuteCommandCompleter;
 import lazy.dev.lazyChat.commands.muteCommand.MuteManager;
-// import net.luckperms.api.LuckPerms;
-// import org.bukkit.plugin.RegisteredServiceProvider;
 import lazy.dev.lazyChat.sign.SignListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,12 +19,14 @@ public final class LazyChat extends JavaPlugin {
     public LanguageManager languageManager;
     public ChatUtility chatUtility;
 
-    // public RegisteredServiceProvider<LuckPerms> provider = getServer().getServicesManager().getRegistration(LuckPerms.class);
     @Override
     public void onEnable() {
         new Checker(this).getLatestVersion(latest -> {
             if (currentVersion.equalsIgnoreCase(latest)) {
                 getLogger().info("You're using actual version.");
+                if (currentVersion.contains("patch")) {
+                    getLogger().info("I really made PATCH for my plugin? wow.");
+                }
             } else if (currentVersion.contains("snap")) {
                 getLogger().warning("You're using snapshot. It very unstable. If you meet bugs or errors with this plugin — made issue on Github:");
                 getLogger().warning("https://github.com/LazyCat0/LazyChat-MC-plugin/issues");
@@ -59,6 +59,9 @@ public final class LazyChat extends JavaPlugin {
         if (getConfig().getInt("config-version") != 3) {
             getLogger().severe("Found config version that isn't compares with plugin version.");
             this.saveResource("config.yml", true);
+        }
+        if (getServer().getPluginManager().isPluginEnabled("LuckPerms")) {
+            getLogger().info("Found LuckPerms enabled. So, we can use it API for some features :3");
         }
     }
     public ChatUtility getChatUtility() {
