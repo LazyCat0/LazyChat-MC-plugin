@@ -10,6 +10,7 @@ options:
   language: English # Available: English, Russian, Ukrainian
   enable-logging: true # Enables logging to console.
   default: local
+  experiments: false # Enables some experiments like .json for chats or databases for mutes.
 
 chats:
   global:
