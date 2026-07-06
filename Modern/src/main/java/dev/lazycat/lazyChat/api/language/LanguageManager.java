@@ -1,71 +1,47 @@
 package dev.lazycat.lazyChat.api.language;
 
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.*;
-import java.util.stream.Stream;
-
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 public class LanguageManager {
-    private final Map<Locale, Map<String, String>> translations = new HashMap<>();
-    private final Path langFolder;
-
-    public LanguageManager(Path dataFolder) {
-        this.langFolder = dataFolder.resolve("lang");
-        loadAll();
+    private final Map<String, FileConfiguration> languages = new HashMap<>();
+    private final MiniMessage mm = MiniMessage.miniMessage();
+    private final FileConfiguration lang;
+    public LanguageManager(JavaPlugin plugin) {
+        String defaultLang = plugin.getConfig().getString("options.language", "English");
+        loadLanguages(plugin);
+        this.lang = languages.get(defaultLang);
     }
-
-    private void loadAll() {
-        if (!Files.exists(langFolder)) return;
-        try (Stream<Path> files = Files.list(langFolder)) {
-            files.filter(p -> p.toString().endsWith(".json")).forEach(this::loadFile);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void loadLanguages(JavaPlugin plugin) {
+        File dir = new File(plugin.getDataFolder(), "lang");
+        plugin.saveResource("lang/Russian.yml", true);
+        plugin.saveResource("lang/English.yml", true);
+        plugin.saveResource("lang/Ukrainian.yml", true);
+        for (File file : Objects.requireNonNull(dir.listFiles())) {
+            if (!file.getName().endsWith(".yml")) continue;
+            String lang = file.getName().replace(".yml", "");
+            languages.put(lang, YamlConfiguration.loadConfiguration(file));
         }
     }
 
-    private void loadFile(Path file) {
-        String fileName = file.getFileName().toString().replace(".json", "");
-        Locale locale = Locale.forLanguageTag(fileName.replace("_", "-"));
-        try (Reader reader = Files.newBufferedReader(file)) {
-            JsonElement root = JsonParser.parseReader(reader);
-            Map<String, String> flatMap = new HashMap<>();
-            flattenJson(root, "", flatMap);
-            translations.put(locale, flatMap);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public String getRaw(String path) {
+        @NotNull String raw = Objects.requireNonNull(lang.getString(path));
+        return raw;
     }
-
-    private void flattenJson(JsonElement element, String currentPath, Map<String, String> out) {
-        if (element.isJsonObject()) {
-            JsonObject obj = element.getAsJsonObject();
-            for (Map.Entry<String, JsonElement> entry : obj.entrySet()) {
-                String newPath = currentPath.isEmpty() ? entry.getKey() : currentPath + "." + entry.getKey();
-                flattenJson(entry.getValue(), newPath, out);
-            }
-        } else if (element.isJsonPrimitive()) {
-            out.put(currentPath, element.getAsString());
-        } else if (element.isJsonArray()) {
-            JsonArray array = element.getAsJsonArray();
-            List<String> parts = new ArrayList<>();
-            for (JsonElement elem : array) {
-                if (elem.isJsonPrimitive()) parts.add(elem.getAsString());
-            }
-            out.put(currentPath, String.join("\n", parts));
-        }
+    public Component getFormated(@NotNull String path) {
+        return mm.deserialize(getRaw(path));
     }
-
-    public String getTranslation(Locale locale, String key) {
-        Map<String, String> localeMap = translations.get(locale);
-        if (localeMap != null && localeMap.containsKey(key)) {
-            return localeMap.get(key);
-        }
-        return null;
+    public Component getFormated(@NotNull String path, final TagResolver... resolvers) {
+        return mm.deserialize(getRaw(path), TagResolver.resolver(resolvers));
     }
 }
+// by LazyCato0o

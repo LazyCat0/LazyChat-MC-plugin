@@ -7,12 +7,13 @@ config-version: 5
 #  @@@@@ @   @ @@@@@   @    @@@  @   @ @   @   @              @   @  @@@  @@@@  @@@@@ @   @ @   @
 
 options:
+  language: English # Available: English, Russian, Ukrainian
   enable-logging: true # Enables logging to console.
   default: local
 
 chats:
   global:
-    template: "global.yml" # Template for global chat. You can use formats like json or toml (WIP)
+    template: "global.yml" # Template for global chat. You can use formats like json (WIP)
     prefix: "!" # Prefix for use global chat. By default, and most popular — "!".
     radius: -1 # If -1 or 0 — global.
     perm: "" # If not set or just empty, will allow everyone to use this chat
@@ -21,7 +22,7 @@ chats:
     prefix: "" # Not set cause isn't need.
     radius: 100
   whisper:
-    template: "whisper"
+    template: "whisper.yml"
     prefix: ["*", "_", "~"] # Supports aliases
     radius: 10
     perm: "" # If not set or just empty, will allow everyone to use this chat
