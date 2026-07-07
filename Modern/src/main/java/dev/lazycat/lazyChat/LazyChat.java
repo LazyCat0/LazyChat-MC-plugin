@@ -1,9 +1,13 @@
 package dev.lazycat.lazyChat;
 
+import dev.lazycat.lazyChat.api.chatSystem.CManager;
+import dev.lazycat.lazyChat.api.chatSystem.ChatListener;
 import dev.lazycat.lazyChat.api.language.LanguageManager;
+import dev.lazycat.lazyChat.api.mute.MuteManager;
 import dev.lazycat.lazyChat.commands.BCCommand;
 import dev.lazycat.lazyChat.commands.LCCommandKt;
-import dev.lazycat.lazyChat.commands.muteCommand.MuteManager;
+import dev.lazycat.lazyChat.commands.muteCommand.MuteCommand;
+import dev.lazycat.lazyChat.commands.muteCommand.MuteCommandCompleter;
 import dev.lazycat.lazyChat.Listeners.FormatListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
@@ -13,6 +17,7 @@ public final class LazyChat extends JavaPlugin {
     public static LazyChat instance;
     public MuteManager muteManager;
     private LanguageManager lang;
+    private CManager chatManager;
 
     @Override
     public void onEnable() {
@@ -51,25 +56,31 @@ public final class LazyChat extends JavaPlugin {
         lang = new LanguageManager(this); // My experiment with .json and MM translator not success...
         // save some files
         saveDefaultConfig();
-        muteManager = new MuteManager(this);
-        muteManager.LoadMuteList();
-        // I don't know...
+        // Mute :P
+        boolean useDatabaseForMutes = getConfig().getBoolean("options.experiments.databasesForMute", false);
+        muteManager = new MuteManager(this, useDatabaseForMutes);
+        // I forget for what it...
         instance = this;
         // commands init
         Objects.requireNonNull(getCommand("lazychat")).setExecutor(new LCCommandKt(this));
         Objects.requireNonNull(getCommand("lazychat")).setTabCompleter(new LCCommandKt(this));
-//
         Objects.requireNonNull(getCommand("lbroadcast")).setExecutor(new BCCommand(this));
-//
-//        Objects.requireNonNull(getCommand("l-mute")).setExecutor(new MuteCommand(muteManager));
-//        Objects.requireNonNull(getCommand("l-mute")).setTabCompleter(new MuteCommandCompleter());
+        Objects.requireNonNull(getCommand("l-mute")).setExecutor(new MuteCommand(this));
+        Objects.requireNonNull(getCommand("l-mute")).setTabCompleter(new MuteCommandCompleter());
 
         // listeners
         getServer().getPluginManager().registerEvents(new FormatListener(), this);
+
+        // And finally, CHAT!
+        chatManager = new CManager(this);
+        getServer().getPluginManager().registerEvents(new ChatListener(this,chatManager), this);
         saveFiles();
     }
     public LanguageManager getLang() {
         return lang;
+    }
+    public CManager getChatManager() {
+        return chatManager;
     }
     private void saveFiles() {
         saveResource("lang/English.yml", true);
@@ -80,5 +91,12 @@ public final class LazyChat extends JavaPlugin {
         saveResource("templates/global.yml", false);
         saveResource("templates/local.yml", false);
         saveResource("templates/whisper.yml", false);
+    }
+
+    @Override
+    public void onDisable() {
+        if (muteManager != null) {
+            muteManager.close();
+        }
     }
 }

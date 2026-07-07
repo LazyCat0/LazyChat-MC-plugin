@@ -32,6 +32,8 @@ class LCCommandKt(private val plugin: LazyChat) : CommandExecutor, TabCompleter 
                 try {
                     plugin.reloadConfig()
                     lang.loadLanguages(plugin)
+                    plugin.chatManager.reload()
+                    plugin.muteManager.reload()
                     sender.sendMessage(lang.getFormated("lazychat.messages.reload.success"))
                     plugin.logger.info("Successfully reloaded plugin")
                 } catch (e: Exception ) {

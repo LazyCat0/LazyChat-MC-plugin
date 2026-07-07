@@ -9,8 +9,12 @@ config-version: 5
 options:
   language: English # Available: English, Russian, Ukrainian
   enable-logging: true # Enables logging to console.
-  default: local
-  experiments: false # Enables some experiments like .json for chats or databases for mutes.
+  default: local # Chat that will be used by default
+
+  # Enables some experiments like .json for chats or databases for mutes.
+  experiments:
+    jsonForChats: false
+    databasesForMute: false
 
 chats:
   global:
@@ -35,16 +39,25 @@ chats:
     # If player do not have perm — He cannot read and send messages in this chat. If he try — in chat will send only text with prefix that DO NOT work.
   # Example chat - Business chat.
   #business:
-  #  template: "business.yml"
+  #  template: "business.json"
   #  prefix: ["$", ";"]
 
 blacklist:
   chat:
-    colors: false # Disables able for players for use colors. By default, enabled (or on false).
-    gradients: false # Disables able for players for use gradients. By default, enabled (or on false).
+    colors: false # Disables able for players for use colors. By default, colors enabled (or on false).
+    gradients: false # Disables able for players for use gradients. By default, gradients enabled (or on false).
     tags: # Disables custom (and not only) tags.
       - newline
       - obf
+      - hover
+      - lang
+      - tr
+      - translate
+      - font
+      - selector
+      - score
+      - nbt
+      - sprite
   signs: false # Disables able for players for use MiniMessage on signs. By default, enabled (or on false).
   dm: false # Disables able for players for use MiniMessage in direct messages. By default, enabled (or on false).
   whisper: false # Disables able for players for use whisper. By default, enabled (or on false).

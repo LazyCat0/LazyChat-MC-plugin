@@ -1,6 +1,6 @@
 {
   "config": {
-    "prompt": "<dark_gray>[<green>$</green>]</dark_gray> <prefix><reset><icon><gold><nickname></gold><suffix> <gray> >>> <m><reset>"
+    "prompt": "<dark_gray>[<green>$</green>]</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray> >>> <m><reset>"
   },
   "blacklist": {
     "global": false,
