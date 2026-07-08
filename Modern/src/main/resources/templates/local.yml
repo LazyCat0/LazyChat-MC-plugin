@@ -2,6 +2,7 @@ config:
   # <prefix> - Prefix from LuckPerms, <suffix> - same, but with suffix
   # <nickname> - player nickname. <m> - message
   prompt: "<dark_gray>[<green>-</green>]</dark_gray> <prefix><reset><gold><nickname></gold><suffix> <gray> >>> <m><reset>"
+  cooldown: 1 # Cooldown in seconds.
 blacklist:
   global: true #if set to false, plugin will read blacklist from this place. Else, it will read from config.yml
   # config:

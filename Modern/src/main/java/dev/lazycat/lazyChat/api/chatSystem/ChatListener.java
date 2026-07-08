@@ -2,13 +2,11 @@ package dev.lazycat.lazyChat.api.chatSystem;
 
 import dev.lazycat.lazyChat.LazyChat;
 import dev.lazycat.lazyChat.api.chatSystem.configs.BlacklistConfig;
-import dev.lazycat.lazyChat.api.chatSystem.tags.TagsCollection;
 import dev.lazycat.lazyChat.api.language.LanguageManager;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
-import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
@@ -53,14 +51,7 @@ public class ChatListener implements Listener {
             return;
         }
 
-        MiniMessage mm = MiniMessage.builder()
-                .tags(TagResolver.builder()
-                        .resolver(TagsCollection.createPlayerResolver(player))
-                        .resolver(TagsCollection.createPlayerPrefixResolver(player))
-                        .resolver(TagsCollection.createPlayerSuffixResolver(player))
-                        .build()
-                )
-                .build();
+        MiniMessage mm = MiniMessage.miniMessage();
 
         Component originalMessage = event.message();
         String plainText = PlainTextComponentSerializer.plainText().serialize(originalMessage);
@@ -104,7 +95,10 @@ public class ChatListener implements Listener {
 
         String prompt = chat.template().prompt();
         Component formatted = mm.deserialize(prompt,
-                Placeholder.parsed("m", messageContent)
+                Placeholder.parsed("m", messageContent),
+                Placeholder.parsed("nickname", player.getName()),
+                Placeholder.parsed("prefix", getPrefix(player)),
+                Placeholder.parsed("suffix", getSuffix(player))
         );
 
         int radius = chat.radius();

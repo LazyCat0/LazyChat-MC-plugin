@@ -52,6 +52,7 @@ public class BCCommand implements CommandExecutor {
         return true;
     }
 
+
     public String prefix(Player player) {
         if (lp == null) {
             return "";

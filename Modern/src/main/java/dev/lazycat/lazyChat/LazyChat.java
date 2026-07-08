@@ -9,7 +9,10 @@ import dev.lazycat.lazyChat.commands.LCCommandKt;
 import dev.lazycat.lazyChat.commands.muteCommand.MuteCommand;
 import dev.lazycat.lazyChat.commands.muteCommand.MuteCommandCompleter;
 import dev.lazycat.lazyChat.Listeners.FormatListener;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
+
 import java.util.Objects;
 
 public final class LazyChat extends JavaPlugin {
@@ -86,11 +89,13 @@ public final class LazyChat extends JavaPlugin {
         saveResource("lang/English.yml", true);
         saveResource("lang/Russian.yml", true);
         saveResource("lang/Ukrainian.yml", true);
-        saveResource("templates/admin.yml", false);
-        saveResource("templates/business.json", false);
-        saveResource("templates/global.yml", false);
-        saveResource("templates/local.yml", false);
-        saveResource("templates/whisper.yml", false);
+        if (getConfig().getBoolean("options.save-internal-chats")) {
+            saveResource("templates/admin.yml", false);
+            saveResource("templates/business.json", false);
+            saveResource("templates/global.yml", false);
+            saveResource("templates/local.yml", false);
+            saveResource("templates/whisper.yml", false);
+        }
     }
 
     @Override

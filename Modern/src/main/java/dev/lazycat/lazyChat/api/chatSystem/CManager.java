@@ -36,8 +36,7 @@ public class CManager {
 
             List<String> prefixes = new ArrayList<>();
             Object prefixObj = chatConfig.get("prefix");
-            if (prefixObj instanceof String) {
-                String single = (String) prefixObj;
+            if (prefixObj instanceof String single) {
                 if (!single.isEmpty()) prefixes.add(single);
             } else if (prefixObj instanceof List) {
                 prefixes.addAll((List<String>) prefixObj);
