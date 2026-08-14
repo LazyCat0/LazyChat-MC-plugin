@@ -1,0 +1,56 @@
+broadcast:
+  command:
+    usage: "<gold>Використання - /bc <повідомлення>"
+  messages:
+    new-broadcast: "<b><gold>Нове оголошення!</gold></b><newline><newline><m>"
+    broadcast-by: "<gold>Оголошення від <reset><prefix> <player> <suffix>"
+
+mute:
+  command:
+    usage: "<gold>Використання - /lc-mute <mute/unmute> <ім'я_гравця> <час_муту>(m/h/d)"
+    set_time: "Ви повинні вказати час — «10 h», «1 m» і т.д. h — години, m — хвилини, d — дні."
+    unknown_format: "Ви використовуєте невідомий формат часу. Використовуйте «10 m», де m — хвилини."
+  messages:
+    muted: "<red><player> було замучено на <time> з причини: <reason>"
+    yj_muted: "<red>Вас замучено на <time>!"
+    you_muted: "<red>Вас замучено!"
+    unmuted: "<green><player> був розмучений!"
+    yj_unmuted: "<green>Вас розмучено!</green>"
+
+lazychat:
+  messages:
+    cannot_use: "<red>Ви <i>не можете</i> використовувати цю команду!"
+    usage: "<gold>Використання - /lc <reload> або <info>."
+    info:
+      - "<color:#70c4ff>Lazy-плагін \"LazyChat\"</color><newline>"
+      - "<color:#70c4ff>Автор плагіна - LazyCato0o</color> (<click:open_url:'https://ru.namemc.com/profile/LazyCato0o.1'>NameMC</click>)<newline>"
+      - "<color:#70c4ff>Доступний на</color> <click:open_url:'https://github.com/LazyCat0/LazyChat-MC-plugin'><color:#e761ff>Github</color></click>, <click:open_url:'https://www.spigotmc.org/resources/lazychat.130059/'><color:#fff757>SpigotMC</color></click>.<newline>"
+    reload:
+      reloading: "<gold>Перезавантаження...."
+      success: "<green>LazyChat успешно перезавантажено!</green>"
+      error: "<red>Помилка при перезавантаженні LazyChat - <e_message>"
+
+title:
+  command:
+    usage: "<gold>Використання: /title <нік або селектор> <clear|reset|title|subtitle|actionbar|times> ..."
+    player-n-foo: "<red>Гравець не знайдений або оффлайн!"
+    clear: "<green>Титри для <player> були очищені"
+    reset: "<green>Налаштування титрів для <player> були скинуті"
+    title: "<green>Гравцеві <player> показано заголовок: '<text>'"
+    subtitle: "<green>Гравцеві <player> встановлено підзаголовок: '<text>'"
+    actionbar: "<green>Гравцеві <player> показано заголовок дії: '<text>'"
+
+
+say:
+  command:
+    usage: "<gold>Використання: /say <повідомлення>"
+
+
+other:
+  ofp: "<red>Тільки для гравців <i>(або адмінів)</i>!"
+  CUNT_cause_DNHP: "<red>Ви не можете використовувати деякі теги, оскільки у вас недостатньо прав!"
+  CSEM: "<red>Ви не можете надіслати порожнє повідомлення!"
+  not-enough-rights: "<red>У вас недостатньо прав, щоб відправити повідомлення в цей чат!"
+  not-enough-rights-cmd: "<red>У вас недостатньо прав для використання цієї команди!"
+  cooldown: "<red>Будь ласка, зачекайте <white><seconds></white> сек. перед повторним використанням!"
+  no-reason: "Без причини"
