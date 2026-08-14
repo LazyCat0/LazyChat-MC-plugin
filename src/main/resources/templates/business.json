@@ -6,7 +6,7 @@
   "blacklist": {
     "global": false,
     "config": {
-      "colors": false,
+      "minimessage": false,
       "gradients": false,
       "tags": [
         "newline", "obf", "b", "i"

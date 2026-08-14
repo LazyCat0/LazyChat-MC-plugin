@@ -41,7 +41,7 @@ public class ChatListener implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onAsyncChat(AsyncChatEvent event) {
         Player player = event.getPlayer();
 
@@ -136,14 +136,14 @@ public class ChatListener implements Listener {
     private BlacklistConfig getGlobalBlacklist() {
         BlacklistConfig global = new BlacklistConfig();
         global.setGlobal(true);
-        global.setColors(plugin.getConfig().getBoolean("blacklist.chat.colors", false));
+        global.setMinimessage(plugin.getConfig().getBoolean("blacklist.chat.minimessage", false));
         global.setGradients(plugin.getConfig().getBoolean("blacklist.chat.gradients", false));
         global.setTags(plugin.getConfig().getStringList("blacklist.chat.tags"));
         return global;
     }
 
     private boolean isMessageAllowed(Player player, String message, BlacklistConfig blacklist) {
-        if (blacklist.isColors()) {
+        if (blacklist.isMinimessage()) {
             if (hasAnyTag(message)) {
                 return false;
             }

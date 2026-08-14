@@ -6,7 +6,7 @@ config:
 blacklist:
   global: true #if set to false, plugin will read blacklist from this place. Else, it will read from config.yml
  # config:
- #   colors: false # Disables able for players for use colors. By default, disabled.
+ #   minimessage: false # Disables able for players for use minimessage. By default, set to false or Minimessage can be used.
  #   gradients: false # Disables able for players for use gradients. By default, disabled.
  #   tags: # Disables custom (and not only) tags.
  #     - newline

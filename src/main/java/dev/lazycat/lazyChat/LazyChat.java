@@ -5,18 +5,15 @@ import dev.lazycat.lazyChat.api.language.LanguageManager;
 import dev.lazycat.lazyChat.api.mute.MuteManager;
 import dev.lazycat.lazyChat.commands.BCCommand;
 import dev.lazycat.lazyChat.commands.LCCommandKt;
-import dev.lazycat.lazyChat.commands.brigadier.MeCommand;
-import dev.lazycat.lazyChat.commands.brigadier.TitleCommand;
 import dev.lazycat.lazyChat.commands.muteCommand.MuteCommand;
 import dev.lazycat.lazyChat.commands.muteCommand.MuteCommandCompleter;
 import dev.lazycat.lazyChat.Listeners.FormatListener;
-import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
 public final class LazyChat extends JavaPlugin {
-    public String currentVersion = this.getPluginMeta().getVersion();
+    public String currentVersion = this.getPluginMeta().getVersion().toLowerCase();
     public static LazyChat instance;
     public MuteManager muteManager;
     private LanguageManager lang;
@@ -26,18 +23,21 @@ public final class LazyChat extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         sendLog();
         saveFiles();
+        getConfig().set("options.save-internal-chats", false);
         //version
         new Checker(this).getLatestVersion(latest -> {
             if (currentVersion.equalsIgnoreCase(latest)) {
                 getLogger().info("You're using actual version.");
                 if (currentVersion.contains("patch")) {
                     getLogger().info("I really made PATCH for my plugin? wow.");
+                } else if (currentVersion.contains("beta")) {
+                    getLogger().info("I REALLY MADE PUBLIC BETA!? wow.");
+                    getLogger().warning("Warning: You're using BETA, and it may be unstable. If you're found bugs or errors — make me know.");
+                    getLogger().warning("Send logs to https://github.com/LazyCat0/LazyChat-MC-plugin/issues and give information about what you do for get this result.");
                 }
-            } else if (currentVersion.contains("snap")) {
-                getLogger().warning("You're using snapshot. It very unstable. If you meet bugs or errors with this plugin — made issue on Github:");
-                getLogger().warning("https://github.com/LazyCat0/LazyChat-MC-plugin/issues");
             }
             else {
                 getLogger().warning("Wait, you not updated a lot!");
@@ -47,9 +47,7 @@ public final class LazyChat extends JavaPlugin {
             }
         });
         //language
-        lang = new LanguageManager(this); // My experiment with .json and MM translator not success...
-        // save some files
-        saveDefaultConfig();
+        lang = new LanguageManager(this);
         // Mute :P
         boolean useDatabaseForMutes = getConfig().getBoolean("options.experiments.databasesForMute", false);
         muteManager = new MuteManager(this, useDatabaseForMutes);
@@ -62,19 +60,6 @@ public final class LazyChat extends JavaPlugin {
         Objects.requireNonNull(getCommand("lbroadcast")).setExecutor(new BCCommand(this));
         Objects.requireNonNull(getCommand("l-mute")).setExecutor(new MuteCommand(this));
         Objects.requireNonNull(getCommand("l-mute")).setTabCompleter(new MuteCommandCompleter());
-
-        if (getConfig().getBoolean("options.experiments.replacements")) {
-            this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, e -> {
-                var registrar = e.registrar();
-                if (getConfig().getBoolean("replacements.title", true)) {
-                    registrar.register("title", new TitleCommand(this));
-                }
-                if (getConfig().getBoolean("replacements.me", true)) {
-                    registrar.register("me", new MeCommand(this));
-                }
-
-            });
-        }
 
         // listeners
         getServer().getPluginManager().registerEvents(new FormatListener(), this);

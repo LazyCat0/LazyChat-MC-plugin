@@ -20,7 +20,7 @@ public record ChatTemplate(String prompt, BlacklistConfig blacklist, Double cool
             BlacklistConfig blacklist = new BlacklistConfig();
             blacklist.setGlobal(yaml.getBoolean("blacklist.global", true));
             if (!blacklist.isGlobal()) {
-                blacklist.setColors(yaml.getBoolean("blacklist.config.colors", false));
+                blacklist.setMinimessage(yaml.getBoolean("blacklist.config.minimessage", false));
                 blacklist.setGradients(yaml.getBoolean("blacklist.config.gradients", false));
                 blacklist.setTags(yaml.getStringList("blacklist.config.tags"));
             }
@@ -37,7 +37,7 @@ public record ChatTemplate(String prompt, BlacklistConfig blacklist, Double cool
                 blacklist.setGlobal(blacklistObj.get("global").getAsBoolean());
                 if (!blacklist.isGlobal()) {
                     JsonObject cfg = blacklistObj.getAsJsonObject("config");
-                    blacklist.setColors(cfg.get("colors").getAsBoolean());
+                    blacklist.setMinimessage(cfg.get("minimessage").getAsBoolean());
                     blacklist.setGradients(cfg.get("gradients").getAsBoolean());
                     blacklist.setTags(gson.fromJson(cfg.get("tags"), List.class));
                 }
