@@ -47,7 +47,7 @@ chats:
 
 blacklist:
   chat:
-    minimessage: false # Disables able for players for use any minimessage tags. By default, colors enabled (or in other words on false).
+    minimessage: false # Disables able for players for use minimessage. By default, set to false or Minimessage can be used.
     gradients: false # Disables able for players for use gradients. By default, gradients enabled (or in other words on false).
     tags: # Disables custom (and not only) tags.
       - newline
