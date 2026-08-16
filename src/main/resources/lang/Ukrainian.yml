@@ -7,12 +7,12 @@ broadcast:
 
 mute:
   command:
-    usage: "<gold>Використання - /lc-mute <mute/unmute> <ім'я_гравця> <час_муту>(m/h/d)"
+    usage: "<gold>Використання - /lc-mute <mute/unmute> <ім'я_гравця> <час_муту>(m/h/d) <причина> (але може бути і пустим)"
     set_time: "Ви повинні вказати час — «10 h», «1 m» і т.д. h — години, m — хвилини, d — дні."
     unknown_format: "Ви використовуєте невідомий формат часу. Використовуйте «10 m», де m — хвилини."
   messages:
     muted: "<red><player> було замучено на <time> з причини: <reason>"
-    yj_muted: "<red>Вас замучено на <time>!"
+    yj_muted: "<red>Ви були замучені на <time> адміном <admin> з причини: <reason>!"
     you_muted: "<red>Вас замучено!"
     unmuted: "<green><player> був розмучений!"
     yj_unmuted: "<green>Вас розмучено!</green>"
@@ -29,21 +29,6 @@ lazychat:
       reloading: "<gold>Перезавантаження...."
       success: "<green>LazyChat успешно перезавантажено!</green>"
       error: "<red>Помилка при перезавантаженні LazyChat - <e_message>"
-
-title:
-  command:
-    usage: "<gold>Використання: /title <нік або селектор> <clear|reset|title|subtitle|actionbar|times> ..."
-    player-n-foo: "<red>Гравець не знайдений або оффлайн!"
-    clear: "<green>Титри для <player> були очищені"
-    reset: "<green>Налаштування титрів для <player> були скинуті"
-    title: "<green>Гравцеві <player> показано заголовок: '<text>'"
-    subtitle: "<green>Гравцеві <player> встановлено підзаголовок: '<text>'"
-    actionbar: "<green>Гравцеві <player> показано заголовок дії: '<text>'"
-
-
-say:
-  command:
-    usage: "<gold>Використання: /say <повідомлення>"
 
 
 other:

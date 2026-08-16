@@ -1,5 +1,8 @@
 package dev.lazycat.lazyChat.api.mute.storages;
 
+import dev.lazycat.lazyChat.LazyChat;
+import dev.lazycat.lazyChat.api.language.LanguageManager;
+import dev.lazycat.lazyChat.api.mute.MuteInfo;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,36 +11,49 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
 public class YamlMuteStorage implements MuteStorage {
     private final File file;
     private final FileConfiguration config;
-    private final JavaPlugin plugin;
+    private final LazyChat plugin;
+    private final LanguageManager lang;
 
-    public YamlMuteStorage(JavaPlugin plugin) {
+    public YamlMuteStorage(LazyChat plugin) {
         this.plugin = plugin;
         this.file = new File(plugin.getDataFolder(), "data/muted_players.yml");
         if (!file.exists()) {
             plugin.saveResource("data/muted_players.yml", false);
         }
         this.config = YamlConfiguration.loadConfiguration(file);
+        this.lang = plugin.getLang();
     }
 
     @Override
-    public Map<UUID, Long> loadMutes() {
-        Map<UUID, Long> mutes = new HashMap<>();
-        if (config.getConfigurationSection("mutes") == null) return mutes;
-        for (String key : Objects.requireNonNull(config.getConfigurationSection("mutes")).getKeys(false)) {
-            mutes.put(UUID.fromString(key), config.getLong("mutes." + key));
+    public Map<UUID, MuteInfo> loadMutes() {
+        Map<UUID, MuteInfo> result = new HashMap<>();
+        if (config.getConfigurationSection("mutes") == null) return result;
+
+        for (String key : config.getConfigurationSection("mutes").getKeys(false)) {
+            UUID uuid = UUID.fromString(key);
+            String path = "mutes." + key;
+            if (config.isLong(path)) {
+                long expiry = config.getLong(path);
+                result.put(uuid, new MuteInfo(expiry, ""));
+            } else {
+                long expiry = config.getLong(path + ".expiry");
+                String reason = config.getString(path + ".reason", "");
+                result.put(uuid, new MuteInfo(expiry, reason));
+            }
         }
-        return mutes;
+        return result;
     }
 
     @Override
-    public void saveMute(UUID uuid, long expiry) {
-        config.set("mutes." + uuid.toString(), expiry);
+    public void saveMute(UUID uuid, MuteInfo info) {
+        String path = "mutes." + uuid.toString();
+        config.set(path + ".expiry", info.getExpiry());
+        config.set(path + ".reason", info.getReason());
         save();
     }
 
@@ -49,21 +65,32 @@ public class YamlMuteStorage implements MuteStorage {
 
     @Override
     public boolean isMuted(UUID uuid) {
-        Long expiry = getExpiry(uuid);
-        return expiry != null && System.currentTimeMillis() <= expiry;
+        MuteInfo info = getMuteInfo(uuid);
+        return info != null && System.currentTimeMillis() <= info.getExpiry();
     }
 
     @Override
-    public Long getExpiry(UUID uuid) {
-        if (!config.contains("mutes." + uuid.toString())) return null;
-        return config.getLong("mutes." + uuid.toString());
+    public MuteInfo getMuteInfo(UUID uuid) {
+        String path = "mutes." + uuid.toString();
+        if (!config.contains(path)) return null;
+        if (config.isLong(path)) {
+            long expiry = config.getLong(path);
+            return new MuteInfo(expiry, "");
+        }
+        long expiry = config.getLong(path + ".expiry");
+        String reason = config.getString(path + ".reason", "");
+        return new MuteInfo(expiry, reason);
     }
 
     private void save() {
-        try { config.save(file); } catch (IOException e) { plugin.getLogger().severe("Failed to save mutes: " + e.getMessage()); }
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            plugin.getLogger().severe("Failed to save mutes: " + e.getMessage());
+        }
     }
 
     @Override
-    public void close() {}
+    public void close() {
+    }
 }
-

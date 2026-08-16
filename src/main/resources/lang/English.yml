@@ -7,12 +7,12 @@ broadcast:
 
 mute:
   command:
-    usage: "<gold>Usage - /lc-mute <mute/unmute> <player_name> <time_for_mute>(m/h/d)"
+    usage: "<gold>Usage - /lc-mute <mute/unmute> <player_name> <time_for_mute>(m/h/d) <reason> (but can be empty)"
     set_time: "You must set time - \"10 h\", \"1 m\" and by this way. h - hours, m - minutes, d - days."
     unknown_format: "You trying to use unknown time format. You must use \"10 m\" - where m - minutes."
   messages:
     muted: "<red><player> has got muted for a <time> with reason <reason>"
-    yj_muted: "<red>You just muted for a <time>!"
+    yj_muted: "<red>You just muted for a <time> by <admin> with reason: <reason>"
     you_muted: "<red>You muted!"
     unmuted: "<green><player> just now been unmuted!"
     yj_unmuted: "<green>You just now unmuted!</green>"
@@ -30,19 +30,6 @@ lazychat:
       success: "<green>LazyChat has successfully reloaded!</green>"
       error: "<red>LazyChat meet error(s) while reloading - <e_message>"
 
-title:
-  command:
-    usage: "<gold>Usage - /title <nickname or selector> <clear|reset|title|subtitle|actionbar|times> ..."
-    player-n-foo: "<red>Player was not found or offline!"
-    clear: "<green>Title '<text>' for <player> was cleared"
-    reset: "<green>Title '<text>' for <player> was reset"
-    title: "<green>Title '<text>' for <player> showed"
-    subtitle: "<green>Subtitle '<text>' for <player> was set"
-    actionbar: "<green>Actionbar '<text>' for <player> showed"
-
-say:
-  command:
-    usage: "<gold>Usage - /say <message>"
 
 other:
   ofp: "<red>Only for players <i>(or admins)</i>!"
@@ -51,4 +38,4 @@ other:
   not-enough-rights: "<red>Not enough rights to send message to this chat!"
   not-enough-rights-cmd: "<red>You do not have enough rights to use this command!"
   cooldown: "<red>Please, wait <white><seconds><white> seconds before using it again!"
-  no-reason: "no reason"
+  no-reason: "No reason"

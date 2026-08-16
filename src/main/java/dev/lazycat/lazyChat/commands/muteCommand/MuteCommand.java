@@ -3,6 +3,8 @@ package dev.lazycat.lazyChat.commands.muteCommand;
 import dev.lazycat.lazyChat.LazyChat;
 import dev.lazycat.lazyChat.api.language.LanguageManager;
 import dev.lazycat.lazyChat.api.mute.MuteManager;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -12,6 +14,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MuteCommand implements CommandExecutor {
@@ -34,7 +37,7 @@ public class MuteCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) return true;
-        if (args.length == 0) {
+        if (args.length < 2) {
             sender.sendMessage(lang.getFormated("mute.command.usage"));
             return true;
         }
@@ -64,16 +67,28 @@ public class MuteCommand implements CommandExecutor {
                     sender.sendMessage(lang.getFormated("mute.command.set_time"));
                     return true;
                 }
+                String raw;
+                if (args.length > 4) {
+                    raw = String.join(" ", Arrays.copyOfRange(args, 4, args.length));
+                } else raw = lang.getRaw("other.no-reason");
 
-                muteManager.mute(target.getUniqueId(), duration);
+                muteManager.mute(target.getUniqueId(), duration, raw);
 
                 String timeStr = amount + " " + unit;
+                Component reason = MiniMessage.miniMessage().deserialize(raw);
 
                 if (target.isOnline() && target.getPlayer() != null) {
-                    Objects.requireNonNull(target.getPlayer()).sendMessage(lang.getFormated("mute.messages.yj_muted", Placeholder.parsed("time", timeStr)));
+                    Objects.requireNonNull(target.getPlayer()).sendMessage(lang.getFormated(
+                            "mute.messages.yj_muted",
+                            Placeholder.parsed("time", timeStr),
+                            Placeholder.parsed("admin", sender.getName()),
+                            Placeholder.component("reason", reason)
+
+                    ));
                     sender.sendMessage(lang.getFormated("mute.messages.muted",
                             Placeholder.parsed("player", target.getName()),
-                            Placeholder.parsed("time", timeStr)
+                            Placeholder.parsed("time", timeStr),
+                            Placeholder.component("reason", reason)
                             ));
                 }
             } catch (NumberFormatException e) {

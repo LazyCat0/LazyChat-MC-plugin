@@ -26,17 +26,25 @@ public final class LazyChat extends JavaPlugin {
         saveDefaultConfig();
         sendLog();
         saveFiles();
-        getConfig().set("options.save-internal-chats", false);
         //version
         new Checker(this).getLatestVersion(latest -> {
             if (currentVersion.equalsIgnoreCase(latest)) {
                 getLogger().info("You're using actual version.");
                 if (currentVersion.contains("patch")) {
                     getLogger().info("I really made PATCH for my plugin? wow.");
-                } else if (currentVersion.contains("beta")) {
-                    getLogger().info("I REALLY MADE PUBLIC BETA!? wow.");
-                    getLogger().warning("Warning: You're using BETA, and it may be unstable. If you're found bugs or errors — make me know.");
-                    getLogger().warning("Send logs to https://github.com/LazyCat0/LazyChat-MC-plugin/issues and give information about what you do for get this result.");
+                }
+            }
+            else if (currentVersion.contains("beta")) {
+                getLogger().info("I REALLY MADE PUBLIC BETA!? wow.");
+                getLogger().warning("Warning: You're using BETA, and it may be unstable. If you're found bugs or errors — make me know.");
+                getLogger().warning("Send logs to https://github.com/LazyCat0/LazyChat-MC-plugin/issues and give information about what you do for get this result.");
+                if (currentVersion.equalsIgnoreCase(latest)) {
+                    getLogger().info("You're using actual version.");
+                } else {
+                    getLogger().warning("Wait, you not updated a lot, also, THIS IS BETA!");
+                    getLogger().warning("Current version: " + currentVersion);
+                    getLogger().warning("New version: " + latest);
+                    getLogger().warning("Download: https://modrinth.com/plugin/lazychat/versions");
                 }
             }
             else {
