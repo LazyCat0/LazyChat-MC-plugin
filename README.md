@@ -1,4 +1,4 @@
-# LazyChat | [![](https://jitpack.io/v/LazyCat0/LazyChat-MC-plugin.svg)](https://jitpack.io/#LazyCat0/LazyChat-MC-plugin)
+# LazyChat | [![](https://jitpack.io/v/FallLazy/LazyChat.svg)](https://jitpack.io/#FallLazy/LazyChat)
 
 LazyChat - It's a Chat system, that adds MiniMessage to chat, broadcasts and signs.  
 And... it has a lot of things, that can be configured.
